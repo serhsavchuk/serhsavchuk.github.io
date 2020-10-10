@@ -7,6 +7,20 @@ function timeDividing () {
     let lowerHour = parseInt(document.getElementById("time-hours-less").value);
     let lowerMinute = parseInt(document.getElementById("time-minutes-less").value);
 
+    //Перевірка чи значення є номером.
+    if (isNaN(highHour)) {
+        highHour = 0;
+    }
+    if (isNaN(highMinute)) {
+        highMinute = 0;
+    }
+    if (isNaN(lowerHour)) {
+        lowerHour = 0;
+    }
+    if (isNaN(lowerMinute)) {
+        lowerMinute = 0;
+    }
+
     //Оголошуємо потрібні змінні і переводимо відразу в хвилини.
     let highTotalMinutes = (highHour * 60) + highMinute;
     let lowerTotalMinutes = (lowerHour * 60) + lowerMinute;
@@ -16,7 +30,7 @@ function timeDividing () {
 
     console.log("High TOTAL: " + highTotalMinutes + " Low TOTAL: " + lowerTotalMinutes);
 
-    if (highTotalMinutes > lowerTotalMinutes) { //Перевірка даних.
+    if (highTotalMinutes >= lowerTotalMinutes) { //Перевірка даних.
 
         //Віднімаємо заданий час.
         resultInMinutes = highTotalMinutes - lowerTotalMinutes;
@@ -46,9 +60,16 @@ function timeDividing () {
 
     //Повідомлення про помилку.
     else {
+        document.getElementById("error-message").style.display ="block";
+        document.getElementById("error-gray-bg").style.display ="block";
         console.log("Error");
     }
     
     console.log("high hour: " + highHour + " High minute: " + highMinute + " _ " + "Lower Hour: " + lowerHour + " Lower Minute: " + lowerMinute);
     console.log(resultInHours + " : " + remainder);
+}
+
+function errorCloser () {
+    document.getElementById("error-message").style.display ="none";
+    document.getElementById("error-gray-bg").style.display ="none";
 }
