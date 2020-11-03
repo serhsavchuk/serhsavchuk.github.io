@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles.css">
+        <title>Survey Form</title>
+    </head>
+    <body>
+        <h1 id="title">Savchuk Games Survey</h1>
+        <p id="description">Give your games recommendations.</p>
+        <form action="" id="survey-form">
+            <label for="name" id="name-label">Name:</label><br>
+            <input type="text" id="name" required placeholder="Enter your name please"><br>
+            
+            <label for="email" id="email-label">Email:</label><br>
+            <input type="email" id="email" required placeholder="Enter yout Email please"><br>
+            
+            <label for="number" id="number-label">Age:</label><br>
+            <input type="number" id="number" placeholder="Enter your Age please" min="13" max="120"><br>
+            
+            <label for="dropdown">Choose favorite video game genre:</label> <br>
+            <select name="genre" id="dropdown">
+                <option value="Action">Action</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Fightingh">Fightingh</option>
+                <option value="Platform">Platform</option>
+                <option value="Puzzle">Puzzle</option>
+                <option value="Racing">Racing</option>
+                <option value="Role-playing">Role-playing</option>
+                <option value="Shooter">Shooter</option>
+                <option value="Simulation">Simulation</option>
+                <option value="Sports">Sports</option>
+                <option value="Strategy">Strategy</option>
+            </select>
+
+            <p>Choose what type of platform do you use:</p>
+
+            <input type="radio" name="platform" id="PlayStation" value="PlayStation">
+            <label for="PlayStation">PlayStation</label><br>
+            <input type="radio" name="platform" id="Xbox" value="Xbox">
+            <label for="Xbox">Xbox</label><br>
+            <input type="radio" name="platform" id="PC" value="PC">
+            <label for="PC">PC</label><br>
+
+            <p>Choose your best: </p>
+            <input type="checkbox" id="gta5" name="game-1" value="GTA5">
+            <label for="GTA5">Grand Threft Auto 5</label><br>
+            <input type="checkbox" id="whitcher3" name="game-2" value="whitcher3">
+            <label for="whitcher3">The Whitcher 3</label><br>           
+            <input type="checkbox" id="LastOfUs2" name="game-3" value="LastOfUs2">
+            <label for="LastOfUs2">The Last Of Us Part II</label><br>
+            <input type="checkbox" id="fortnite" name="game-4" value="Fortnite">
+            <label for="fortnite">Fortnite Battle Royale</label><br>
+            <input type="checkbox" id="dead-stranding" name="game-5" value="DeathStranding">
+            <label for="dead-stranding">Death Stranding</label><br>
+
+            <label for="suggestions">Write your wishes below:</label><br>
+            <textarea name="suggestions" id="suggestions" cols="30" rows="10"></textarea><br>
+
+            <input type="submit" value="Submit" id="submit">
+        </form>
+        
+        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    </body>
+</html>
