@@ -1,0 +1,58 @@
+body {
+    font-family: sans-serif;
+    max-width: 960px;
+    margin: 0 auto;
+}
+h1,
+#description {
+    text-align: center;
+}
+
+form {
+    display: block;
+    font-size: 1.3em;
+    padding: 4vmax;
+    border-radius: 3vmin;
+    background-color: #F1F1F1;
+}
+
+select,
+input[type=text],
+input[type=email],
+input[type=number] {
+    display: block;
+    width: 100%;
+    min-height: 2.4vmax;
+    border-radius: 1vmin;
+    font-size: large;
+    margin-top: 0.2vh;
+    margin-bottom: 0.8vh;
+    border: solid 1px darkgray;
+    padding-left: 1vw;
+}
+textarea {
+    display: block;
+    width: 100%;
+    border-radius: 1vmin;
+    min-height: 20vh;
+}
+.txt-lbl {
+    display: block;
+    margin-top: 2vh;
+    margin-bottom: -10px;
+}
+
+input[type=submit] {
+    width: 100%;
+    min-height: 4vh;
+    background-color: green;
+    border: solid 1px darkgray;
+    color: snow;
+    font-size: large;
+    padding: 10px;
+    border-radius: 1vmin;
+}
+input[type=submit]:hover {
+    cursor: pointer;
+    background-color: darkgreen;
+}
