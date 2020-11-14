@@ -4,37 +4,58 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css" type="text/css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
         <title>Computer World</title>
     </head>
     <body>
         <header id="header">
-            <img src="img/logo.jpg" alt="Company Logo" id="header-img">
-            <nav id="navbar">
-                <ul>
-                    <li><a href="#" class="nav-link">About</a></li>
-                    <li><a href="#" class="nav-link">Showroom</a></li>
-                    <li><a href="#" class="nav-link">Pricing</a></li>
+            <nav id="nav-bar">
+                <img src="img/logo.png" alt="Company Logo" id="header-img">
+                <ul class="nav-list">
+                    <li><a href="#content" class="nav-link">About</a></li>
+                    <li><a href="#video" class="nav-link">Showroom</a></li>
+                    <li><a href="#pricing" class="nav-link">Pricing</a></li>
                 </ul>
             </nav>
         </header>
-        <main class="content">
-            <h1>A turbo one computer for you.</h1>
+        <main class="content" id="content">
+            <h2 id="about">A turbo one. <br> Computer for you.</h2>
             <p class="title">Powerfull</p>
-            <p class="description"></p>
+            <p class="description">The most powerfull PC ever.</p>
             <p class="title">Lighter</p>
-            <p class="description"></p>
+            <p class="description">Lighter than one kg of feathers.</p>
             <p class="title">Splendid</p>
-            <p class="description"></p>
+            <p class="description">As mountain morning.</p>
             <video id="video" autoplay controls>
                 <source src="video/video.mp4" type="video/mp4">
             </video>
 
+
             <form action="https://www.freecodecamp.com/email-submit" id="form">
+                
+                <p id="pricing">Choose right for you:</p>
+                <ul class="price-checker">
+                    <li>
+                        <input type="checkbox" id="basic" name="computer_1" value="basic">
+                        <label for="basic">Basic $499</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="medium" name="computer_2" value="medium" checked>
+                        <label for="medium">Medium $799</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="boss" name="computer_3" value="basic">
+                        <label for="boss">Boss $999</label>
+                    </li>
+                </ul>
                 <input type="email" id="email" required name="email" placeholder="Enter email...">
                 <input type="submit" value="Submit" id="submit">
             </form>
         </main>
-        <footer></footer>
+        <footer>
+            <p class="description-footer">Developed by <a href="https://www.freecodecamp.org/serhsavchuk" class="developed-by">Serhii Savchuk</a> for a <a href="https://www.freecodecamp.org/" class="developed-for">freeCodeCamp.org</a></p>
+        </footer>
         <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
     </body>
 </html>
