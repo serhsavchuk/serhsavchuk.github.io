@@ -128,7 +128,8 @@ video {
 
 .price-checker {
     list-style-type: none;
-
+    display: flex;
+    flex-direction: column;
 }
 .price-checker li,
 .price-checker li label {
