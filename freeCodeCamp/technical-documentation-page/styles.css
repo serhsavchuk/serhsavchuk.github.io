@@ -1,10 +1,6 @@
 @media only screen and (min-width: 1024px) {
-    body {
-    display: grid;
-    grid-template-areas:
-        'left-menu main-content'
-        'footer footer';
-    grid-template-columns: 25% auto;
+    main {
+    margin-left: 25%;
     }
     nav {
         position: fixed;
@@ -13,7 +9,19 @@
         width: 25%;
         height: 100vh;
         border-right: 3px solid darkgray;
+        background-color: whitesmoke;
     }
+    /* for Grid*/
+    nav {
+        grid-area: left-menu;
+    }
+    main {
+        grid-area: main-content;
+    }
+    footer {
+        grid-area: footer;
+    }
+/* end */
 }
 
 * {
@@ -24,17 +32,6 @@
 }
 
 
-/* for Grid*/
-nav {
-    grid-area: left-menu;
-}
-main {
-    grid-area: main-content;
-}
-footer {
-    grid-area: footer;
-}
-/* end */
 
 code,
 .code-mark {
@@ -120,7 +117,7 @@ code {
 }
 
 footer {
-    background-color: #f2f2f2;
+    background-color: whitesmoke;
     padding: 5vh 0 5vh 0;
     text-align: center;
 }
