@@ -1,3 +1,133 @@
+@media only screen and (min-width: 1024px) {
+    body {
+    display: grid;
+    grid-template-areas:
+        'left-menu main-content'
+        'footer footer';
+    grid-template-columns: 25% auto;
+    }
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 25%;
+        height: 100vh;
+        border-right: 3px solid darkgray;
+    }
+}
+
 * {
+    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
+    line-height: 1.6!important;
+    scroll-behavior: smooth;
+}
+
+
+/* for Grid*/
+nav {
+    grid-area: left-menu;
+}
+main {
+    grid-area: main-content;
+}
+footer {
+    grid-area: footer;
+}
+/* end */
+
+code,
+.code-mark {
+    font-family: monospace;
+    font-size: 1rem;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    max-width: 960px;
+    padding-left: 1vmax;
+    padding-right: 1vmax;
+    padding-bottom: 3vmin;
+}
+
+main header {
+    border-bottom: 2px solid lightskyblue!important;
+}
+
+h3,
+main header {
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 0;
+    border-bottom: 2px solid lightgrey;
+    margin-top: 3rem;
+}
+p {
+    font-size: 1rem;
+}
+
+nav {
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+nav header {
+    text-align: center;
+    font-size: 2.1rem;
+    letter-spacing: 0.25px;
+    padding-top: 2vmin;
+    padding-bottom: 2vmin;
+}
+
+
+
+nav a {
+    display: block;
+    padding: 1vh 0 1vh 1vw;
+    font-size: 1rem;
+    font-size: 1.5rem;
+    border-top: 1px solid black;
+}
+nav a:hover {
+    background-color:  #ebf6f9;
+}
+footer {
+    z-index: 10;
+}
+
+.code-mark {
+    padding: 0.1875rem;
+    background-color: #ebf6f9;
+}
+
+code {
+    background-color: #ebf6f9;
+    display: block;
+    padding: 3vh 2vw 3vh 2vw;
+    border-left: 5px solid darkgray;
+}
+
+#Reference a {
+    color: #46A049;
+}
+
+footer {
+    background-color: #f2f2f2;
+    padding: 5vh 0 5vh 0;
+    text-align: center;
+}
+footer p {
+    font-size: 1.25rem;
+    
+}
+footer p a {
+    color: #808080;
 }
