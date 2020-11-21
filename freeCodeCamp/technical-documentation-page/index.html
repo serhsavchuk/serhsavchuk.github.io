@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JavaScript Browser Object Model</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Technical documentation page.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="noindex">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <nav id="navbar">
+            <header>JavaScript BOM<br>Documentation</header>
+            <a href="#The_Window_Object" class="nav-link">The Window Object</a>
+            <a href="#Window_Screen" class="nav-link">Window Screen</a>
+            <a href="#Window_Location" class="nav-link">Window Location</a>
+            <a href="#Window_History" class="nav-link">Window History</a>
+            <a href="#Window_Navigator" class="nav-link">Window Navigator</a>
+            <a href="#Popup_Boxes" class="nav-link">Popup Boxes</a>
+            <a href="#Timing_Events" class="nav-link">Timing Events</a>
+            <a href="#Cookies" class="nav-link">Cookies</a>
+            <a href="#Reference" class="nav-link">Reference</a>
+        </nav>
+        <main id="main-doc">
+
+            <section id="The_Window_Object" class="main-section">
+                <header>The Window Object</header>
+                <p>The <mark class="code-mark">window</mark> object is supported by all browsers. It represents the browser's window.</p>
+                <p>All global JavaScript objects, functions, and variables automatically become members of the window object.</p>
+                <p>Global variables are properties of the window object.</p>
+                <p>Global functions are methods of the window object.</p>
+                <p>Even the document object (of the HTML DOM) is a property of the window object:</p>
+                <code>
+                    window.document.getElementById("header");
+                </code>
+                <p>is the same as:</p>
+                <code>
+                    document.getElementById("header");
+                </code>
+
+                <h3>Window Size</h3>
+                <p>Two properties can be used to determine the size of the browser window.</p>
+                <p>Both properties return the sizes in pixels:</p>
+                <ul>
+                    <li><mark class="code-mark">window.innerHeight</mark> - the inner height of the browser window (in pixels)</li>
+                    <li><mark class="code-mark">window.innerWidth</mark> - the inner width of the browser window (in pixels)</li>
+                </ul>
+                <aside>
+                    <p>The browser window (the browser viewport) is NOT including toolbars and scrollbars.</p>
+                </aside>
+                <p>A practical JavaScript solution (covering all browsers):</p>
+                <code>
+                    var w = window.innerWidth<br>
+                    || document.documentElement.clientWidth<br>
+                    || document.body.clientWidth;<br>
+                    <br>
+                    var h = window.innerHeight<br>
+                    || document.documentElement.clientHeight<br>
+                    || document.body.clientHeight;<br>
+                </code>
+                <p>The example displays the browser window's height and width: (NOT including toolbars/scrollbars)</p>
+
+                <h3>Other Window Methods</h3>
+                <p>Some other methods:</p>
+                <ul>
+                    <li><mark class="code-mark">window.open()</mark> - open a new window</li>
+                    <li><mark class="code-mark">window.close()</mark> - close the current window</li>
+                    <li><mark class="code-mark">window.moveTo()</mark> - move the current window</li>
+                    <li><mark class="code-mark">window.resizeTo()</mark> - resize the current window</li>
+                </ul>
+            </section>
+
+            <section id="Window_Screen" class="main-section">
+                <header>Window Screen</header>
+                <p>The <mark class="code-mark">window.screen</mark> object contains information about the user's screen.</p>
+                <p>The <mark class="code-mark">window.screen</mark> object can be written without the window prefix.</p>
+                <p>Properties:</p>
+                <ul>
+                    <li><mark class="code-mark">screen.width</mark></li>
+                    <li><mark class="code-mark">screen.height</mark></li>
+                    <li><mark class="code-mark">screen.availWidth</mark></li>
+                    <li><mark class="code-mark">screen.availHeight</mark></li>
+                    <li><mark class="code-mark">screen.colorDepth</mark></li>
+                    <li><mark class="code-mark">screen.pixelDepth</mark></li>
+                </ul>
+
+                <h3>Window Screen Width</h3>
+                <p>The screen.width property returns the width of the visitor's screen in pixels.</p>
+                <p>Display the width of the screen in pixels:</p>
+                <code>
+                    document.getElementById("demo").innerHTML =<br>
+                    "Screen Width: " + screen.width;
+                </code>
+                <p>Result will be:</p>
+                <code>Screen Width: 1920</code>
+
+                <h3>Window Screen Height</h3>
+                <p>The <mark class="code-mark">screen.height</mark> property returns the height of the visitor's screen in pixels.</p>
+                <p>Display the height of the screen in pixels:</p>
+                <code>
+                    document.getElementById("demo").innerHTML = <br>
+                    "Screen Height: " + screen.height;
+                </code>
+                <p>Result will be:</p>
+                <code>
+                    Screen Height: 1080
+                </code>
+                <p>The <mark class="code-mark">screen.availWidth</mark> property returns the width of the visitor's screen, in pixels, minus interface features like the Windows Taskbar.</p>
+                <p>The <mark class="code-mark">screen.availHeight</mark> property returns the height of the visitor's screen, in pixels, minus interface features like the Windows Taskbar.</p>
+                <p>The <mark class="code-mark">screen.colorDepth</mark> property returns the number of bits used to display one color.</p>
+                <p>The <mark class="code-mark">screen.pixelDepth</mark> property returns the pixel depth of the screen.</p>
+
+                <aside>For modern computers, Color Depth and Pixel Depth are equal.</aside>
+            </section>
+
+            <section id="Window_Location" class="main-section">
+                <header>Window Location</header>
+                <p>The <mark class="code-mark">window.location</mark> object can be used to get the current page address (URL) and to redirect the browser to a new page.</p>
+                <p>The <mark class="code-mark">window.location</mark> object can be written without the window prefix.</p>
+                <p>Some examples:</p>
+                <ul>
+                    <li><mark class="code-mark">window.location.href</mark> returns the href (URL) of the current page</li>
+                    <li><mark class="code-mark">window.location.hostname</mark> returns the domain name of the web host</li>
+                    <li><mark class="code-mark">window.location.pathname</mark> returns the path and filename of the current page</li>
+                    <li><mark class="code-mark">window.location.protocol</mark> returns the web protocol used (http: or https:)</li>
+                    <li><mark class="code-mark">window.location.assign()</mark> loads a new document</li>
+                </ul>
+            </section>
+
+            <section id="Window_History" class="main-section">
+                <header>Window History</header>
+                <p>The <mark class="code-mark">window.history</mark> object contains the browsers history.</p>
+                <p>The <mark class="code-mark">window.history</mark> object can be written without the window prefix.</p>
+                <p>To protect the privacy of the users, there are limitations to how JavaScript can access this object.</p>
+                <p>Some methods:</p>
+                <ul>
+                    <li><mark class="code-mark">history.back()</mark> - same as clicking back in the browser</li>
+                    <li><mark class="code-mark">history.forward()</mark> - same as clicking forward in the browser</li>
+                </ul>
+            </section>
+
+            <section id="Window_Navigator" class="main-section">
+                <header>Window Navigator</header>
+                <p>The <mark class="code-mark">window.navigator</mark> object contains information about the visitor's browser.</p>
+                <p>Some examples:</p>
+                <ul>
+                    <li><mark class="code-mark">navigator.appName</mark></li>
+                    <li><mark class="code-mark">navigator.appCodeName</mark></li>
+                    <li><mark class="code-mark">navigator.platform</mark></li>
+                    <li>The <mark class="code-mark">cookieEnabled</mark> property returns true if cookies are enabled, otherwise false.</li>
+                </ul>
+                <h3 class="warning">WARNING</h3>
+                <p>The information from the navigator object can often be misleading, and should not be used to detect browser versions because:</p>
+                <ul>
+                    <li>Different browsers can use the same name</li>
+                    <li>The navigator data can be changed by the browser owner</li>
+                    <li>Some browsers misidentify themselves to bypass site tests</li>
+                    <li>Browsers cannot report new operating systems, released later than the browser</li>
+                </ul>
+            </section>
+
+            <section id="Popup_Boxes" class="main-section">
+                <header>Popup Boxes</header>
+                <p>JavaScript has three kind of popup boxes: Alert box, Confirm box, and Prompt box.</p>
+                <p>An alert box is often used if you want to make sure information comes through to the user.<br>When an alert box pops up, the user will have to click "OK" to proceed.</p>
+                <p class="example">Example: </p>
+                <code>
+                    alert("I am an alert box!");
+                </code>
+                <h3>Confirm Box</h3>
+                <p>A confirm box is often used if you want the user to verify or accept something.<br> When a confirm box pops up, the user will have to click either "OK" or "Cancel" to proceed.<br> If the user clicks "OK", the box returns true. If the user clicks "Cancel", the box returns false.</p>
+                <p class="example">Example: </p>
+                <code>
+                    if (confirm("Press a button!")) {<br>
+                        txt = "You pressed OK!";<br>
+                      } else {<br>
+                        txt = "You pressed Cancel!";<br>
+                      }<br>
+                </code>
+
+                <h3>Prompt Box</h3>
+                <p>A prompt box is often used if you want the user to input a value before entering a page.<br> When a prompt box pops up, the user will have to click either "OK" or "Cancel" to proceed after entering an input value.<br> If the user clicks "OK" the box returns the input value. If the user clicks "Cancel" the box returns null.</p>
+                <p class="example">Example: </p>
+                <code>
+                    var person = prompt("Please enter your name", "Harry Potter");<br>
+                    <br>
+                    if (person == null || person == "") {<br>
+                    txt = "User cancelled the prompt.";<br>
+                    } else {<br>
+                    txt = "Hello " + person + "! How are you today?";<br>
+                    }<br>
+                </code>
+            </section>
+
+            <section id="Timing_Events" class="main-section">
+                <header>Timing Events</header>
+                <p>The window object allows execution of code at specified time intervals.<br> These time intervals are called timing events.<br> The two key methods to use with JavaScript are:</p>
+                <ul>
+                    <li><mark class="code-mark">setTimeout(function, milliseconds)</mark><br>
+                    Executes a function, after waiting a specified number of milliseconds.</li>
+                    <li><mark class="code-mark">setInterval(function, milliseconds)</mark><br>
+                    Same as setTimeout(), but repeats the execution of the function continuously.</li>
+                </ul>
+                <aside>The <mark class="code-mark">setTimeout()</mark> and <mark class="code-mark">setInterval()</mark> are both methods of the HTML DOM Window object.</aside>
+            </section>
+
+            <section id="Cookies" class="main-section">
+                <header>Cookies</header>
+                <p>Cookies let you store user information in web pages.</p>
+                <h3>What are Cookies?</h3>
+                <p>Cookies are data, stored in small text files, on your computer.<br> When a web server has sent a web page to a browser, the connection is shut down, and the server forgets everything about the user.<br><br> Cookies were invented to solve the problem "how to remember information about the user":</p>
+                <ul>
+                    <li>When a user visits a web page, his/her name can be stored in a cookie.</li>
+                    <li>Next time the user visits the page, the cookie "remembers" his/her name.</li>    
+                </ul>
+                <h3>Create a Cookie with JavaScript</h3>
+                <p>JavaScript can create, read, and delete cookies with the <mark class="code-mark">document.cookie</mark> property.<br> With JavaScript, a cookie can be created like this:</p>
+                <code>
+                    document.cookie = "username=John Doe";
+                </code>
+                <p>You can also add an expiry date (in UTC time). By default, the cookie is deleted when the browser is closed:</p>
+                <code>
+                    document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+                </code>
+                <p>With a path parameter, you can tell the browser what path the cookie belongs to. By default, the cookie belongs to the current page.</p>
+                <code>
+                    document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+                </code>
+
+                <h3>Read a Cookie with JavaScript</h3>
+                <p>With JavaScript, cookies can be read like this:</p>
+                <code>var x = document.cookie;</code>
+                <aside><mark class="code-mark">document.cookie</mark> will return all cookies in one string much like: cookie1=value; cookie2=value; cookie3=value;</aside>
+                <p>With JavaScript, you can change a cookie the same way as you create it:</p>
+                <code>
+                    document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+                </code>
+                <p>The old cookie is overwritten.</p>
+                <p>Deleting a cookie is very simple.<br> You don't have to specify a cookie value when you delete a cookie.<br> Just set the expires parameter to a passed date:</p>
+                <code>
+                    document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                </code>
+                <aside>You should define the cookie path to ensure that you delete the right cookie.<br> Some browsers will not let you delete a cookie if you don't specify the path.</aside>
+            </section>
+
+            <section id="Reference" class="main-section">
+                <header>Reference</header>
+                <p>All the documentation in this page is taken from <a href="https://www.w3schools.com/js/js_window.asp" target="_blank">W3Schools.com</a></p>
+            </section>
+        </main>
+        <footer>
+            <p>Footer</p>
+        </footer>
+    </body>
+</html>
