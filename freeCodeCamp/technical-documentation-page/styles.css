@@ -74,7 +74,6 @@ p {
 nav {
     padding-left: 1vw;
     padding-right: 1vw;
-    z-index: -1;
 }
 
 nav header {
@@ -84,8 +83,6 @@ nav header {
     padding-top: 2vmin;
     padding-bottom: 2vmin;
 }
-
-
 
 nav a {
     display: block;
