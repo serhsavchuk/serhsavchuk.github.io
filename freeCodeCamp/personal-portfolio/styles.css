@@ -1,14 +1,35 @@
+@media only screen and (max-width: 1023px) {
+    :root {
+        --image-width: 80vw;
+        --image-height: 60vh;
+        --h1-font-size: 3rem;
+        --welcome-p: 1rem;
+        --project-font-size: 1.1rem;
+    }
+}
 @media only screen and (min-width: 1024px) {
     :root {
-        --image-width: 22vw;
+        --image-width: 26vw;
         --image-height: 30vw;
+        --h1-font-size: 6rem;
+        --welcome-p: 2rem;
+        --project-font-size: 1.3rem;
     }
 }
 * {
     box-sizing: border-box;
 }
+@keyframes scale-animation {
+    0% {
+        transform: scale(1, 1);
+    }
+    100% {
+        transform: scale(1.08, 1.08);
+    }
+}
 html {
     font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
 }
 body {
     margin: 0;
@@ -21,13 +42,20 @@ img {
     max-width: 100%;
     height: auto;
 }
+h1 {
+    font-size: var(--h1-font-size);
+}
+#welcome-section p {
+    font-style: italic;
+    font-size: var(--welcome-p);
+}
 
 nav {
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
-    background-color: silver;
+    background-color: #a1887f;
     padding: 0 1vw;
 }
 .nav-flex {
@@ -37,38 +65,50 @@ nav {
 nav a {
     padding: 2.8vh 2vw 2.8vh 2vw;
     height: 100%;
-    background-color: white;
+    font-size: 1.2rem;
+    color: #000000;
 }
 nav a:hover {
-
+    background-color: #725b53;
+    color: #d3b8ae;
 }
 main {
-    max-width: 80vw;
+    max-width: 100vw;
     margin: 0 auto;
-    padding: 2vh 2vw 4vh 2vw;
+    padding-top: 2vh;
 }
 #welcome-section {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: #424242;
 }
 #welcome-section h1,
 #welcome-section p {
     text-align: center;
+    color: #ffffff;
+
 }
 #projects {
     padding-top: 8vh;
+    padding-bottom: 8vh;
     text-align: center;
+    background-color: #725b53;
 }
-.main-project {
+.project-tile {
     display: inline-block;
     margin: 2vmax 1vmin;
     border-radius: 15px;
     border: 2px solid whitesmoke;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    
     background-color: whitesmoke;
+}
+.project-tile:hover,
+#profile-link:hover {
+    animation-name: scale-animation;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
 }
 .tribute-page-img {
     background-image: url(images/tribute-page.png);
@@ -104,7 +144,49 @@ main {
     max-width: var(--image-width);
     margin: 0 auto;
     margin-top: 6vh;
-    background-color: greenyellow;
-    padding: 1vh 0;
+    background-color: #d3b8ae;
+    color: #000000;
+    padding: 2vh 0;
     border-radius: 5px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.project-title {
+    font-size: var(--project-font-size);
+    color: black
+}
+
+#contact {
+    display: flex;
+    justify-content: space-around;
+    min-height: 10vh;
+    align-items: center;
+    margin: 2vh 0;
+    font-size: 1.5rem;
+    background-color: #616161;
+    margin: 0;
+}
+#contact a {
+    color: whitesmoke;
+}
+#contact a:hover {
+    color: #ffffff;
+}
+
+footer {
+    background-color: #373737;
+    padding: 5vh 0 5vh 0;
+    text-align: center;
+    color: white;
+}
+footer p {
+    font-size: 1.25rem;
+    
+}
+footer p a {
+    color: #bdbdbd;
+}
+footer p a:hover {
+    color: white;
 }
