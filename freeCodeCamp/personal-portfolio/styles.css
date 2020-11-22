@@ -1,0 +1,110 @@
+@media only screen and (min-width: 1024px) {
+    :root {
+        --image-width: 22vw;
+        --image-height: 30vw;
+    }
+}
+* {
+    box-sizing: border-box;
+}
+html {
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: silver;
+    padding: 0 1vw;
+}
+.nav-flex {
+    display: flex;
+    flex-direction: row-reverse;
+}
+nav a {
+    padding: 2.8vh 2vw 2.8vh 2vw;
+    height: 100%;
+    background-color: white;
+}
+nav a:hover {
+
+}
+main {
+    max-width: 80vw;
+    margin: 0 auto;
+    padding: 2vh 2vw 4vh 2vw;
+}
+#welcome-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#welcome-section h1,
+#welcome-section p {
+    text-align: center;
+}
+#projects {
+    padding-top: 8vh;
+    text-align: center;
+}
+.main-project {
+    display: inline-block;
+    margin: 2vmax 1vmin;
+    border-radius: 15px;
+    border: 2px solid whitesmoke;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+    background-color: whitesmoke;
+}
+.tribute-page-img {
+    background-image: url(images/tribute-page.png);
+}
+.survey-form-img {
+    background-image: url(images/survey-form.png);
+}
+.product-landing-img {
+    background-image: url(images/product-landing-page.png);
+}
+.technical-documentation-img {
+    background-image: url(images/technical-documentation-page.png);
+}
+.time-finding-img {
+    background-image: url(images/time-finding-project.png);
+}
+
+.tribute-page-img,
+.survey-form-img,
+.product-landing-img,
+.technical-documentation-img,
+.time-finding-img {
+    width: var(--image-width);
+    height: var(--image-height);
+    background-position: center;
+    background-size: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#profile-link {
+    display: block;
+    max-width: var(--image-width);
+    margin: 0 auto;
+    margin-top: 6vh;
+    background-color: greenyellow;
+    padding: 1vh 0;
+    border-radius: 5px;
+}
