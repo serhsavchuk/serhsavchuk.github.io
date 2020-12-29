@@ -15,13 +15,20 @@
                 nav {
                     display: none!important;
                 }
-                #decor {
+                #decor,
+                #certificate-logo {
                     display: none!important;
                 }
             }
             html {
                 scroll-behavior: smooth;
             }
+            #certificate-logo {
+                width: 70px;
+                height: 70px; 
+                background-color: #0a0a23;
+            }
+
         </style>
     </head>
     <body class="container-fluid">
@@ -72,7 +79,7 @@
                 <div id="certifications" class="shadow-sm p-4 mb-4">
                     <h3 class="mb-3">Certifications</h3>
                     <div class="media border p-3">
-                        <div style="width: 70px; height: 70px; background-color: #0a0a23;" class="mr-3 rounded mt-1">
+                        <div id="certificate-logo" class="mr-3 rounded mt-1">
                             <img src="main-page/images/fcc_primary_small.jpg" alt="Free Code Camp logo" style="width: 70px; margin-top: 10px;" >
                         </div>
                         <div class="media-body">
