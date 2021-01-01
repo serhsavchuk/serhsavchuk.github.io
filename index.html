@@ -19,6 +19,10 @@
                 #certificate-logo {
                     display: none!important;
                 }
+
+                #displaying {
+                    display: inline!important;
+                }
             }
             html {
                 scroll-behavior: smooth;
@@ -27,6 +31,16 @@
                 width: 70px;
                 height: 70px; 
                 background-color: #0a0a23;
+            }
+            #github {
+                color: #495057;
+            }
+            #github:hover {
+                color: #212529;
+            }
+
+            #displaying {
+                display: none;
             }
 
         </style>
@@ -49,25 +63,28 @@
                         <li class="nav-item">
                             <a href="#certifications" class="nav-link">Certifications</a>
                         </li>
+                        <!--
                         <li class="nav-item">
                             <a href="#projects" class="nav-link">Projects</a>
                         </li>
+                        -->
                     </ul>
                 </nav>  
                 <div id="profile" class="shadow-sm p-4 mb-4 mt-4">
                     <h2 class="display-4">Serhii Savchuk</h2>
                     <h4 class="font-weight-normal">Web Developer <span id="decor">|</span> <small >serhii.savchuk.dev@gmail.com</small></h4>
-                    <p class="mb-1 h5 font-weight-normal"><i class="fa fa-map-marker-alt"></i> Ukraine</p>
-                    <div class="h4">
+                    <p class="mb-2 h5 font-weight-normal"><i class="fa fa-map-marker-alt"></i> Ukraine</p>
+                    <div class="h4 mt-2 mb-2">
                         <a href="https://www.linkedin.com/in/serhsavchuk/" target="_blank"><i class="fab fa-linkedin mr-1" ></i></a>
-                        <a href="https://github.com/serhsavchuk" target="_blank"><i class="fab fa-github text-secondary mr-1"></i></a>
+                        <a href="https://github.com/serhsavchuk" target="_blank"><i class="fab fa-github mr-1" id="github"></i></a>
                     </div>
                 </div>
                 <div id="skills" class="shadow-sm p-4 mb-4">
                     <h3 class="mb-3">Skills</h3>
                     <ul class="list-group">
-                        <li class="mb-0 list-group-item">Bootstrap, Sass, CSS3, HTML5.</li>
-                        <li class="mb-0 list-group-item">React, Redux, JavaScript.</li>
+                        <li class="mb-0 list-group-item">Bootstrap, HTML5/CSS3.</li>
+                        <li class="mb-0 list-group-item">React, JavaScript.</li>
+                        <li class="mb-0 list-group-item">English: B1.</li>
                     </ul>
                 </div>
                 <div id="education" class="shadow-sm p-4 mb-4">
@@ -78,7 +95,7 @@
                 </div>
                 <div id="certifications" class="shadow-sm p-4 mb-4">
                     <h3 class="mb-3">Certifications</h3>
-                    <div class="media border p-3">
+                    <div class="media border p-3 mb-4">
                         <div id="certificate-logo" class="mr-3 rounded mt-1">
                             <img src="main-page/images/fcc_primary_small.jpg" alt="Free Code Camp logo" style="width: 70px; margin-top: 10px;" >
                         </div>
@@ -89,7 +106,19 @@
                             <p><a href="https://www.freecodecamp.org/certification/serhsavchuk/responsive-web-design" target="_blank">See credential</a></p>
                         </div>
                     </div>
+                    <div class="media border p-3 mb-4">
+                        <div id="certificate-logo" class="mr-3 rounded mt-1">
+                            <img src="main-page/images/fcc_primary_small.jpg" alt="Free Code Camp logo" style="width: 70px; margin-top: 10px;" >
+                        </div>
+                        <div class="media-body">
+                            <h4 class="mb-1">JavaScript Algorithms and Data Structures</h4>
+                            <p class="mb-1">freeCodeCamp</p>
+                            <p class="text-secondary">Issued January 1, 2021 <br> <small>No Expiration Date</small></p>
+                            <p><a href="https://www.freecodecamp.org/certification/serhsavchuk/javascript-algorithms-and-data-structures" target="_blank">See credential</a></p>
+                        </div>
+                    </div>
                 </div>
+                <!--
                 <div id="projects" class="shadow-sm p-4 mb-4">
                     <h3 class="mb-3">Projects</h3>
                     <div class="container row mx-auto">
@@ -143,6 +172,11 @@
                         </div>
                     </div>
                 </div>
+                -->
+                <div class="p-4 m-4">
+                    <p class="text-center text-secondary">Developed by Serhii Savchuk <br id="displaying"> &#169; 2021</p>
+                </div>
+                
             </main>
             <div class="col-lg-2"></div>
         </div>
