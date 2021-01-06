@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9GE48MY1FJ"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-9GE48MY1FJ');
+        </script>
+
         <title>Serhii Savchuk | Software Engineer</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,13 +31,13 @@
                 nav {
                     display: none!important;
                 }
-                #decor,
-                #certificate-logo {
+                .hidden-mobile {
                     display: none!important;
                 }
-
-                #displaying {
-                    display: inline!important;
+            }
+            @media (min-width: 768px) {
+                .hidden-full {
+                    display: none;
                 }
             }
             html {
@@ -55,8 +65,8 @@
         <div class="row">
             <div class="col-lg-2"></div>
             <main class="col-lg-8">
-                <nav class="navbar navbar-expand-sm bg-light navbar-light justify-content-center">
-                    <ul class="navbar-nav">
+                <nav class="navbar navbar-expand-sm bg-light navbar-light">
+                    <ul class="navbar-nav col-lg-11">
                         <li class="nav-item">
                             <a href="#profile" class="nav-link">Profile</a>
                         </li>
@@ -75,22 +85,27 @@
                         </li>
                         -->
                     </ul>
+                    <div class="h4 mt-2 mb-2 col-lg-1 text-right p-0">
+                        <a href="https://github.com/serhsavchuk" target="_blank"><i class="fab fa-github mr-1" id="github"></i></a>
+                    </div>
                 </nav>  
                 <div id="profile" class="shadow-sm p-4 mb-4 mt-4">
                     <h2 class="display-4">Serhii Savchuk</h2>
-                    <h4 class="font-weight-normal">Software Engineer<span id="decor"> | </span><small >serhii.savchuk.dev@gmail.com</small></h4>
+                    <h4 class="font-weight-normal">Software Engineer
+                        <span class="hidden-mobile"> | </span>
+                        <br class="hidden-full">
+                        <small class="font-weight-light">serhii.savchuk.dev@gmail.com</small>
+                    </h4>
                     <p class="mb-2 h5 font-weight-normal"><i class="fa fa-map-marker-alt"></i> Ukraine</p>
-                    <div class="h4 mt-2 mb-2">
-                        <a href="https://www.linkedin.com/in/serhsavchuk/" target="_blank"><i class="fab fa-linkedin mr-1" ></i></a>
-                        <a href="https://github.com/serhsavchuk" target="_blank"><i class="fab fa-github mr-1" id="github"></i></a>
+                    <div >
+                        
                     </div>
                 </div>
                 <div id="skills" class="shadow-sm p-4 mb-4">
                     <h3 class="mb-3">Skills</h3>
                     <ul class="list-group">
-                        <li class="mb-0 list-group-item">Bootstrap, SASS, HTML5/CSS3</li>
+                        <li class="mb-0 list-group-item">HTML5, CSS3, Bootstrap</li>
                         <li class="mb-0 list-group-item">JavaScript</li>
-                        <li class="mb-0 list-group-item">English: B1</li>
                     </ul>
                 </div>
                 <div id="education" class="shadow-sm p-4 mb-4">
@@ -102,7 +117,7 @@
                 <div id="certifications" class="shadow-sm p-4 mb-4">
                     <h3 class="mb-3">Certifications</h3>
                     <div class="media border p-3 mb-4">
-                        <div id="certificate-logo" class="mr-3 rounded mt-1">
+                        <div class="mr-3 rounded mt-1 hidden-mobile">
                             <img src="main-page/images/fcc_primary_small.jpg" alt="Free Code Camp logo" style="width: 70px; margin-top: 10px;" >
                         </div>
                         <div class="media-body">
@@ -113,7 +128,7 @@
                         </div>
                     </div>
                     <div class="media border p-3 mb-4">
-                        <div id="certificate-logo" class="mr-3 rounded mt-1">
+                        <div class="mr-3 rounded mt-1 hidden-mobile">
                             <img src="main-page/images/fcc_primary_small.jpg" alt="Free Code Camp logo" style="width: 70px; margin-top: 10px;" >
                         </div>
                         <div class="media-body">
@@ -179,13 +194,25 @@
                     </div>
                 </div>
                 -->
-                <div class="p-4 m-4">
-                    <p class="text-center text-secondary">Developed by Serhii Savchuk <br id="displaying"> &#169; 2021</p>
+                <div class="pt-4 pb-4">
+                    <p class="text-secondary text-center"><span class="hidden-mobile">Developed by</span> Serhii Savchuk &#169; <span id="year"></span></p>
+                    <p class="text-center hidden-full">
+                        <a href="https://github.com/serhsavchuk" target="_blank">GitHub</a>
+                    </p>
                 </div>
                 
             </main>
             <div class="col-lg-2"></div>
         </div>
+        <script>
+            'use strict';
 
+            function changeDateYear(yearElement) {
+                let currentYear = new Date().getFullYear();
+                document.getElementById(yearElement).innerHTML = currentYear;
+            }
+            
+            changeDateYear('year');
+        </script>
     </body>
 </html>
