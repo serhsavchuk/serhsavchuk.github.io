@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  
+  <body>
+  
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        let myCollection = [];
+        let totalWorkedHours = 0;
+        let totalWorkedMinutes = 0;
+
+        class Timechecker extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    startHours: 0,
+                    startMinutes: 0,
+                    endHours: 0,
+                    endMinutes: 0
+                }
+                //this.calculateCollection = this.calculateCollection.bind(this);
+            }
+
+            myChanger = (event) => {
+                console.log(event.target.id);
+                switch(event.target.id){
+                    case "start-hours":
+                        this.setState({
+                            startHours: parseInt(event.target.value)
+                        });
+                        //console.log(event.target.value + " value of " + event.target.id);
+                        //console.log('State value: ' + this.state.startHours);
+                        break;
+                    case "start-minutes":
+                        this.setState({
+                            startMinutes: parseInt(event.target.value)
+                        });
+                        //console.log(event.target.value + " value of " + event.target.id);
+                        break;
+                    case "end-hours":
+                        this.setState({
+                            endHours: parseInt(event.target.value)
+                        });
+                        //console.log(event.target.value + " value of " + event.target.id);
+                        break;
+                    case "end-minutes":
+                        this.setState({
+                            endMinutes: parseInt(event.target.value)
+                        });
+                        //console.log(event.target.value + " value of " + event.target.id);
+                        break;
+                }
+            }
+
+            calculateCollection = (givenObject) => {
+                //Оголошуємо змінні, вони нам знадобляться далі
+                let remainder = 0;
+                let resultInMinutes = 0;
+                let resultInHours = 0;
+
+                //Переводимо години в хвилини і додаємо введені хвилини
+                let startTotalMinutes = 
+                    (givenObject.startHours * 60) + givenObject.startMinutes;
+                let endTotalMinutes = 
+                    (givenObject.endHours * 60) + givenObject.endMinutes;
+
+                if (endTotalMinutes >= startTotalMinutes) {//Перевірка даних.
+
+                    //Віднімаємо заданий час.
+                    resultInMinutes = endTotalMinutes - startTotalMinutes;
+
+                    //Відокремлення лишніх хвилин від повних 60хв.
+                    remainder = resultInMinutes % 60;
+
+                    //Переводимо хвилини в години
+                    if (resultInMinutes >= 60) {
+                        resultInHours = (resultInMinutes - remainder) / 60;
+                    }
+
+                    //Загальний підрахунок всіх годин
+                    totalWorkedHours += resultInHours;
+                    totalWorkedMinutes += remainder;
+                    
+                    //Збираємо всі об'єкти
+                    myCollection = [...myCollection, givenObject];
+                }
+                
+                else {
+                    console.log('Error');
+                }
+                
+                console.log('Start Total min: ', startTotalMinutes, '\nEnd Total min: ', endTotalMinutes);
+
+                console.log('Hours: ', resultInHours, " Minutes: ", remainder);
+
+                console.log("Total Worked Hours: ", totalWorkedHours, "\nTotal Worked Minutes: ", totalWorkedMinutes)
+
+                console.log(myCollection);
+            }
+
+
+            mySubmit = (event) => {
+                //Зупиняємо перезагрузку сторінки
+                event.preventDefault();
+
+                //Перевіряємо чи форма не пуста
+                if (
+                    (this.state.startHours > 0) ||
+                    (this.state.startMinutes > 0) ||
+                    (this.state.endHours > 0) ||
+                    (this.state.endMinutes > 0)) {
+                        this.calculateCollection(this.state);
+                }
+                else {
+                    console.log('Error all is 0');
+                }
+                
+                //document.getElementById("renderForm").reset();
+            }
+
+            render() {
+                return (
+                    <div>
+                        <form onSubmit={this.mySubmit} id="renderForm">
+                            <div>
+                                <p>Початок роботи:</p>
+                                <input
+                                    type="number"
+                                    placeholder="ГГ"
+                                    id="start-hours"
+                                    onChange={this.myChanger}
+                                />
+                                <span> : </span>
+                                <input 
+                                    type="number" 
+                                    placeholder="XX"
+                                    id="start-minutes"
+                                    onChange={this.myChanger}
+                                />
+                            </div>
+                            <div>
+                                <p>Кінець роботи:</p>
+                                <input 
+                                    type="number" 
+                                    placeholder="ГГ"
+                                    id="end-hours"
+                                    onChange={this.myChanger}
+                                />
+                                <span> : </span>
+                                <input 
+                                    type="number" 
+                                    placeholder="ХХ"
+                                    id="end-minutes"
+                                    onChange={this.myChanger}
+                                />   
+                                <br />
+                                <br />
+                                <input 
+                                    type="submit" 
+                                /> 
+                            </div>
+                        </form>
+                        <div>
+                        </div>
+                 </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<Timechecker />, document.getElementById('root'));
+    </script> 
+  </body>
+</html>
