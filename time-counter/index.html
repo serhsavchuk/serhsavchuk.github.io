@@ -1,178 +1,314 @@
 <!DOCTYPE html>
 <html>
-  <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-  
-  <body>
-  
-    <div id="root"></div>
+    <head>
+        <title>Time Checker</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+        <style>
+          #showCurrent {
+              counter-reset: rowNumber;
+          }
+      
+          #showCurrent tr::before {
+              display: table-cell;
+              counter-increment: rowNumber;
+              content: counter(rowNumber) ".";
+              padding: 0.3em;
+              padding-left: 1.1em;
+              text-align: left;
+          }
 
-    <script type="text/babel">
+          #tableNumber {
+            padding-right: 0.3em;
+          }
 
-        let myCollection = [];
-        let totalWorkedHours = 0;
-        let totalWorkedMinutes = 0;
+          .w3-input {
+              max-width: 95px;
+              display: inline-block;
+          }
+          label {
+              display: block;
+              margin-top: 2vh;
+              margin-bottom: 0.5vh;
+          }
 
-        class Timechecker extends React.Component {
-            constructor(props) {
-                super(props);
-                this.state = {
-                    startHours: 0,
-                    startMinutes: 0,
-                    endHours: 0,
-                    endMinutes: 0
-                }
-                //this.calculateCollection = this.calculateCollection.bind(this);
-            }
+          body {
+              max-width: 960px;
+              margin: 0 auto;
+          }
 
-            myChanger = (event) => {
-                console.log(event.target.id);
-                switch(event.target.id){
-                    case "start-hours":
-                        this.setState({
-                            startHours: parseInt(event.target.value)
-                        });
-                        //console.log(event.target.value + " value of " + event.target.id);
-                        //console.log('State value: ' + this.state.startHours);
-                        break;
-                    case "start-minutes":
-                        this.setState({
-                            startMinutes: parseInt(event.target.value)
-                        });
-                        //console.log(event.target.value + " value of " + event.target.id);
-                        break;
-                    case "end-hours":
-                        this.setState({
-                            endHours: parseInt(event.target.value)
-                        });
-                        //console.log(event.target.value + " value of " + event.target.id);
-                        break;
-                    case "end-minutes":
-                        this.setState({
-                            endMinutes: parseInt(event.target.value)
-                        });
-                        //console.log(event.target.value + " value of " + event.target.id);
-                        break;
-                }
-            }
+          form {
+              text-align: center;
+          }
+        </style>
+    </head>
+    <body>
+    
+        <div id="root" class="w3-container"></div>
 
-            calculateCollection = (givenObject) => {
-                //Оголошуємо змінні, вони нам знадобляться далі
-                let remainder = 0;
-                let resultInMinutes = 0;
-                let resultInHours = 0;
+        <script type="text/babel">
 
-                //Переводимо години в хвилини і додаємо введені хвилини
-                let startTotalMinutes = 
-                    (givenObject.startHours * 60) + givenObject.startMinutes;
-                let endTotalMinutes = 
-                    (givenObject.endHours * 60) + givenObject.endMinutes;
+            let myCollection = [];
+            let totalWorkedHours = 0;
+            let totalWorkedMinutes = 0;
 
-                if (endTotalMinutes >= startTotalMinutes) {//Перевірка даних.
-
-                    //Віднімаємо заданий час.
-                    resultInMinutes = endTotalMinutes - startTotalMinutes;
-
-                    //Відокремлення лишніх хвилин від повних 60хв.
-                    remainder = resultInMinutes % 60;
-
-                    //Переводимо хвилини в години
-                    if (resultInMinutes >= 60) {
-                        resultInHours = (resultInMinutes - remainder) / 60;
+            class Timechecker extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        startHours: 0,
+                        startMinutes: 0,
+                        endHours: 0,
+                        endMinutes: 0
                     }
+                    this.myChanger = this.myChanger.bind(this);
+                    this.calculateCollection = this.calculateCollection.bind(this);
+                    this.mySubmit = this.mySubmit.bind(this);
+                    this.totalWorkedRender = this.totalWorkedRender.bind(this);
+                    this.currentWorkedHours = this.currentWorkedHours.bind(this);
+                }
 
-                    //Загальний підрахунок всіх годин
-                    totalWorkedHours += resultInHours;
-                    totalWorkedMinutes += remainder;
+                myChanger = (event) => {
+                    console.log(event.target.id);
+                    switch(event.target.id){
+                        case "start-hours":
+                            this.setState({
+                                startHours: parseInt(event.target.value)
+                            });
+                            console.log(event.target.value + " value of " + event.target.id);
+                            console.log('State value: ' + this.state.startHours);
+                            break;
+                        case "start-minutes":
+                            this.setState({
+                                startMinutes: parseInt(event.target.value)
+                            });
+                            console.log(event.target.value + " value of " + event.target.id);
+                            break;
+                        case "end-hours":
+                            this.setState({
+                                endHours: parseInt(event.target.value)
+                            });
+                            console.log(event.target.value + " value of " + event.target.id);
+                            break;
+                        case "end-minutes":
+                            this.setState({
+                                endMinutes: parseInt(event.target.value)
+                            });
+                            console.log(event.target.value + " value of " + event.target.id);
+                            break;
+                    }
+                }
+
+                calculateCollection = (givenObject) => {
+                    //Оголошуємо змінні, вони нам знадобляться далі
+                    let remainder = 0;
+                    let resultInMinutes = 0;
+                    let resultInHours = 0;
+
+                    //Переводимо години в хвилини і додаємо введені хвилини
+                    let startTotalMinutes = 
+                        (givenObject.startHours * 60) + givenObject.startMinutes;
+                    let endTotalMinutes = 
+                        (givenObject.endHours * 60) + givenObject.endMinutes;
+
+                    if (endTotalMinutes >= startTotalMinutes) {//Перевірка даних.
+
+                        //Віднімаємо заданий час.
+                        resultInMinutes = endTotalMinutes - startTotalMinutes;
+
+                        //Відокремлення лишніх хвилин від повних 60хв.
+                        remainder = resultInMinutes % 60;
+
+                        //Переводимо хвилини в години
+                        if (resultInMinutes >= 60) {
+                            resultInHours = (resultInMinutes - remainder) / 60;
+                        }
+
+                        //Загальний підрахунок всіх годин
+                        totalWorkedHours += resultInHours;
+                        totalWorkedMinutes += remainder;
+
+                        //Оновлення хвилин щоб не було більше 60
+                        while (totalWorkedMinutes >= 60) {
+                            totalWorkedMinutes = totalWorkedMinutes - 60;
+                            totalWorkedHours += 1;
+                        }
+                        
+                        //Збираємо всі об'єкти
+                        myCollection = [...myCollection, givenObject];
+                    }
                     
-                    //Збираємо всі об'єкти
-                    myCollection = [...myCollection, givenObject];
+                    else {
+                        console.log('Error');
+                    }
+                    
+                    console.log('Start Total min: ', startTotalMinutes, '\nEnd Total min: ', endTotalMinutes);
+
+                    console.log('Hours: ', resultInHours, " Minutes: ", remainder);
+
+                    console.log("Total Worked Hours: ", totalWorkedHours, "\nTotal Worked Minutes: ", totalWorkedMinutes)
+
+                    console.log(myCollection);
+
+                    ReactDOM.render(this.totalWorkedRender(), document.getElementById('showHours'));
+
+                    this.currentWorkedHours(myCollection);
                 }
-                
-                else {
-                    console.log('Error');
+
+                mySubmit = (event) => {
+                    //Зупиняємо перезагрузку сторінки
+                    event.preventDefault();
+
+                    //Перевіряємо чи форма не пуста
+                    if (
+                        (this.state.startHours > 0) ||
+                        (this.state.startMinutes > 0) ||
+                        (this.state.endHours > 0) ||
+                        (this.state.endMinutes > 0)) {
+                            this.calculateCollection(this.state);
+                    }
+                    else {
+                        console.log('Error all is 0');
+                    }
+                    
+                    document.getElementById("renderForm").reset();
+                    console.log('State value: ' + this.state.startHours);
                 }
-                
-                console.log('Start Total min: ', startTotalMinutes, '\nEnd Total min: ', endTotalMinutes);
 
-                console.log('Hours: ', resultInHours, " Minutes: ", remainder);
-
-                console.log("Total Worked Hours: ", totalWorkedHours, "\nTotal Worked Minutes: ", totalWorkedMinutes)
-
-                console.log(myCollection);
-            }
-
-
-            mySubmit = (event) => {
-                //Зупиняємо перезагрузку сторінки
-                event.preventDefault();
-
-                //Перевіряємо чи форма не пуста
-                if (
-                    (this.state.startHours > 0) ||
-                    (this.state.startMinutes > 0) ||
-                    (this.state.endHours > 0) ||
-                    (this.state.endMinutes > 0)) {
-                        this.calculateCollection(this.state);
+                totalWorkedRender = () => {
+                    return (
+                        <p className="w3-panel w3-green w3-padding-16">
+                            Загальний робочий час: {totalWorkedHours}год. {totalWorkedMinutes}хв.
+                        </p>
+                    )
                 }
-                else {
-                    console.log('Error all is 0');
-                }
-                
-                //document.getElementById("renderForm").reset();
-            }
 
-            render() {
-                return (
-                    <div>
-                        <form onSubmit={this.mySubmit} id="renderForm">
-                            <div>
-                                <p>Початок роботи:</p>
-                                <input
-                                    type="number"
-                                    placeholder="ГГ"
-                                    id="start-hours"
-                                    onChange={this.myChanger}
-                                />
-                                <span> : </span>
-                                <input 
-                                    type="number" 
-                                    placeholder="XX"
-                                    id="start-minutes"
-                                    onChange={this.myChanger}
-                                />
-                            </div>
-                            <div>
-                                <p>Кінець роботи:</p>
-                                <input 
-                                    type="number" 
-                                    placeholder="ГГ"
-                                    id="end-hours"
-                                    onChange={this.myChanger}
-                                />
-                                <span> : </span>
-                                <input 
-                                    type="number" 
-                                    placeholder="ХХ"
-                                    id="end-minutes"
-                                    onChange={this.myChanger}
-                                />   
-                                <br />
-                                <br />
-                                <input 
-                                    type="submit" 
-                                /> 
-                            </div>
-                        </form>
+                currentWorkedHours = (myCollection) => {
+                    let wHours = myCollection.map((item) => {
+
+                        let i = 0;
+                        let sH = item.startHours;
+                        let sM = item.startMinutes;
+                        let eH = item.endHours;
+                        let eM = item.endMinutes;
+
+                        //Візуальний додаток "0" для зручності читання
+                        if (sH >= 0 && sH <= 9) {
+                            let x = sH;
+                            sH = "0" + x;
+                        }
+                        if (sM >= 0 && sM <= 9) {
+                            let x = sM;
+                            sM = "0" + x;
+                        }
+                        if (eH >= 0 && eH <= 9) {
+                            let x = eH;
+                            eH = "0" + x;
+                        }
+                        if (eM >= 0 && eM <= 9) {
+                            let x = eM;
+                            eM = "0" + x;
+                        }
+
+                        return (
+                            <tr>
+                                <td>{sH} : {sM}</td>
+                                <td>{eH} : {eM}</td>
+                            </tr>
+                        );
+                    });
+                    ReactDOM.render(wHours, document.getElementById("showCurrent"));
+                }
+
+                render() {
+                    return (
                         <div>
-                        </div>
-                 </div>
-                )
+                            <h1 className="w3-panel w3-pale-green w3-padding-16 w3-center">Розрахунок робочого часу</h1>
+                            <form onSubmit={this.mySubmit} id="renderForm" className="w3-container w3-sand w3-padding-32">
+                                <div>
+                                    <label className="w3-text-blue">Початок роботи:</label>
+                                    <input
+                                        type="number"
+                                        placeholder="ГГ"
+                                        id="start-hours"
+                                        onChange={this.myChanger}
+                                        required
+                                        className="w3-input w3-border"
+                                        min="1"
+                                        max="23"
+                                    />
+                                    <span> : </span>
+                                    <input 
+                                        type="number" 
+                                        placeholder="XX"
+                                        id="start-minutes"
+                                        onChange={this.myChanger}
+                                        required
+                                        className="w3-input w3-border"
+                                        min="0"
+                                        max="59"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="w3-text-blue">Кінець роботи:</label>
+                                    <input 
+                                        type="number" 
+                                        placeholder="ГГ"
+                                        id="end-hours"
+                                        onChange={this.myChanger}
+                                        required
+                                        className="w3-input w3-border"
+                                        min="1"
+                                        max="23"
+                                    />
+                                    <span> : </span>
+                                    <input 
+                                        type="number" 
+                                        placeholder="ХХ"
+                                        id="end-minutes"
+                                        onChange={this.myChanger}
+                                        required
+                                        className="w3-input w3-border"
+                                        min="0"
+                                        max="59"
+                                    />   
+                                    <br />
+                                    <br />
+                                    <input 
+                                        type="submit" 
+                                        value="Розрахувати"
+                                        className="w3-btn w3-blue"
+                                    /> 
+                                </div>
+                            </form>
+                            <div>
+                                <p id="showHours"></p>
+                                <table
+                                    className="w3-table-all"
+                                >
+                                    <tr>
+                                        <th id="tableNumber">№</th>
+                                        <th>Початок</th>
+                                        <th>Кінець</th>
+                                    </tr>
+                                </table>
+                                <table 
+                                    id="showCurrent" 
+                                    className="w3-table-all"
+                                >
+                                </table>
+                            </div>
+                    </div>
+                    )
+                }
             }
-        }
 
-        ReactDOM.render(<Timechecker />, document.getElementById('root'));
-    </script> 
-  </body>
+            ReactDOM.render(<Timechecker />, document.getElementById('root'));
+        </script> 
+    </body>
 </html>
