@@ -6,26 +6,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="img/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
         <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
         <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
         <style>
-          #showCurrent {
-              counter-reset: rowNumber;
-          }
-      
-          #showCurrent tr::before {
-              display: table-cell;
-              counter-increment: rowNumber;
-              content: counter(rowNumber) ".";
-              padding: 0.3em;
-              padding-left: 1.1em;
-              text-align: left;
-          }
+            @media only screen and (max-width: 490px){
+                .hiddenOnMobile {
+                    display: none!important;
+                }
+                table {
+                    font-size: smaller;
+                }
+            }
 
-          #tableNumber {
-            padding-right: 0.3em;
-          }
+            @media only screen and (min-width: 400px) {
+                #showCurrent {
+                    counter-reset: rowNumber;
+                }
+
+                #showCurrent tr::before {
+                    display: table-cell;
+                    counter-increment: rowNumber;
+                    content: counter(rowNumber) ".";
+                    padding: 16px;
+                    padding-left: 1.1em;
+                    text-align: left;
+                }
+
+                
+            }
 
           .w3-input {
               max-width: 95px;
@@ -45,6 +55,15 @@
           form {
               text-align: center;
           }
+
+          .trashButton:hover {
+            cursor: pointer;
+          }
+
+          .mainPage {
+              padding-bottom: 5vh;
+          }
+
         </style>
     </head>
     <body>
@@ -56,6 +75,7 @@
             let myCollection = [];
             let totalWorkedHours = 0;
             let totalWorkedMinutes = 0;
+            var INDEX_ELEMENT = 0;
 
             class Timechecker extends React.Component {
                 constructor(props) {
@@ -74,32 +94,26 @@
                 }
 
                 myChanger = (event) => {
-                    console.log(event.target.id);
                     switch(event.target.id){
                         case "start-hours":
                             this.setState({
                                 startHours: parseInt(event.target.value)
                             });
-                            console.log(event.target.value + " value of " + event.target.id);
-                            console.log('State value: ' + this.state.startHours);
                             break;
                         case "start-minutes":
                             this.setState({
                                 startMinutes: parseInt(event.target.value)
                             });
-                            console.log(event.target.value + " value of " + event.target.id);
                             break;
                         case "end-hours":
                             this.setState({
                                 endHours: parseInt(event.target.value)
                             });
-                            console.log(event.target.value + " value of " + event.target.id);
                             break;
                         case "end-minutes":
                             this.setState({
                                 endMinutes: parseInt(event.target.value)
                             });
-                            console.log(event.target.value + " value of " + event.target.id);
                             break;
                     }
                 }
@@ -138,25 +152,19 @@
                             totalWorkedMinutes = totalWorkedMinutes - 60;
                             totalWorkedHours += 1;
                         }
+
+                        //Присвоєння унікального ID кожному об'єкту
+                        givenObject.elementID = INDEX_ELEMENT++;
                         
                         //Збираємо всі об'єкти
                         myCollection = [...myCollection, givenObject];
                     }
                     
                     else {
-                        console.log('Error');
+                        console.log('Error: Start hours more than end hours.');
                     }
-                    
-                    console.log('Start Total min: ', startTotalMinutes, '\nEnd Total min: ', endTotalMinutes);
-
-                    console.log('Hours: ', resultInHours, " Minutes: ", remainder);
-
-                    console.log("Total Worked Hours: ", totalWorkedHours, "\nTotal Worked Minutes: ", totalWorkedMinutes)
-
-                    console.log(myCollection);
 
                     ReactDOM.render(this.totalWorkedRender(), document.getElementById('showHours'));
-
                     this.currentWorkedHours(myCollection);
                 }
 
@@ -170,14 +178,15 @@
                         (this.state.startMinutes > 0) ||
                         (this.state.endHours > 0) ||
                         (this.state.endMinutes > 0)) {
-                            this.calculateCollection(this.state);
+                            this.calculateCollection(
+                                Object.assign({}, this.state)
+                            );
                     }
                     else {
                         console.log('Error all is 0');
                     }
                     
                     document.getElementById("renderForm").reset();
-                    console.log('State value: ' + this.state.startHours);
                 }
 
                 totalWorkedRender = () => {
@@ -191,11 +200,16 @@
                 currentWorkedHours = (myCollection) => {
                     let wHours = myCollection.map((item) => {
 
-                        let i = 0;
                         let sH = item.startHours;
                         let sM = item.startMinutes;
                         let eH = item.endHours;
                         let eM = item.endMinutes;
+                        let currentTotal = 
+                            ((eH * 60) + eM) - ((sH * 60) + sM);
+
+                        let currentTotalFullHours = parseInt(currentTotal / 60);
+                        let currentTotalFullMinutes = currentTotal % 60;
+
 
                         //Візуальний додаток "0" для зручності читання
                         if (sH >= 0 && sH <= 9) {
@@ -217,21 +231,75 @@
 
                         return (
                             <tr>
-                                <td>{sH} : {sM}</td>
-                                <td>{eH} : {eM}</td>
+                                <td className="w3-padding-16">{sH} : {sM}</td>
+                                <td className="w3-padding-16">{eH} : {eM}</td>
+                                <td className="w3-padding-16 hiddenOnMobile">({currentTotal}хв)</td>
+                                <td className="w3-padding-16">{currentTotalFullHours}год. {currentTotalFullMinutes}хв.</td>
+                                <td>
+                                    <button className="trashButton w3-button">
+                                        <i className="fa fa-trash w3-large " onClick={this.myDelete} id={item.elementID} />
+                                    </button>
+                                </td>
                             </tr>
                         );
                     });
+
                     ReactDOM.render(wHours, document.getElementById("showCurrent"));
+                }
+
+                myDelete = (event) => {
+                    event.preventDefault();
+                    let elemToDelete = parseInt(event.target.id);
+
+                    
+
+                    for (let i = 0; i < myCollection.length; i++) {
+                        if (myCollection[i].elementID === elemToDelete) {
+
+                            //Визначаємо кількість хвилин в об'єкті
+                            let sH = myCollection[i].startHours;
+                            let sM = myCollection[i].startMinutes;
+                            let eH = myCollection[i].endHours;
+                            let eM = myCollection[i].endMinutes;
+                            let currentTotal = 
+                                ((eH * 60) + eM) - ((sH * 60) + sM);
+
+                            //Визначаємо загальну кількість хвилин
+                            let currentTotalGlobal = 
+                                (totalWorkedHours * 60) + totalWorkedMinutes;
+
+                            //Новий глобальний час
+                            let nowTotalGlobal = currentTotalGlobal - currentTotal;
+
+                            totalWorkedMinutes = 0;
+                            totalWorkedHours = 0;
+
+                            while(nowTotalGlobal >= 60) {
+                                nowTotalGlobal -= 60;
+                                totalWorkedHours += 1;
+                            }
+
+                            if (nowTotalGlobal > 0) {
+                                totalWorkedMinutes = nowTotalGlobal;
+                                nowTotalGlobal = 0;
+                            }
+
+                            //Видаляємо обраний об'єкт
+                            myCollection.splice(i, 1);
+                            this.currentWorkedHours(myCollection);
+                            
+                            ReactDOM.render(this.totalWorkedRender(), document.getElementById('showHours'));
+                        }
+                    }                    
                 }
 
                 render() {
                     return (
-                        <div>
-                            <h1 className="w3-panel w3-pale-green w3-padding-16 w3-center">Розрахунок робочого часу</h1>
-                            <form onSubmit={this.mySubmit} id="renderForm" className="w3-container w3-sand w3-padding-32">
+                        <div className="mainPage">
+                            <h1 className="w3-container w3-padding-16 w3-center w3-shadow">Розрахунок робочого часу</h1>
+                            <form onSubmit={this.mySubmit} id="renderForm" className="w3-container w3-padding-16">
                                 <div>
-                                    <label className="w3-text-blue">Початок роботи:</label>
+                                    <label className="w3-text-blue w3-large">Початок роботи:</label>
                                     <input
                                         type="number"
                                         placeholder="ГГ"
@@ -239,10 +307,10 @@
                                         onChange={this.myChanger}
                                         required
                                         className="w3-input w3-border"
-                                        min="1"
+                                        min="0"
                                         max="23"
                                     />
-                                    <span> : </span>
+                                    <span className="w3-large"> : </span>
                                     <input 
                                         type="number" 
                                         placeholder="XX"
@@ -255,7 +323,7 @@
                                     />
                                 </div>
                                 <div>
-                                    <label className="w3-text-blue">Кінець роботи:</label>
+                                    <label className="w3-text-blue w3-large">Кінець роботи:</label>
                                     <input 
                                         type="number" 
                                         placeholder="ГГ"
@@ -263,10 +331,10 @@
                                         onChange={this.myChanger}
                                         required
                                         className="w3-input w3-border"
-                                        min="1"
+                                        min="0"
                                         max="23"
                                     />
-                                    <span> : </span>
+                                    <span className="w3-large"> : </span>
                                     <input 
                                         type="number" 
                                         placeholder="ХХ"
@@ -288,15 +356,6 @@
                             </form>
                             <div>
                                 <p id="showHours"></p>
-                                <table
-                                    className="w3-table-all"
-                                >
-                                    <tr>
-                                        <th id="tableNumber">№</th>
-                                        <th>Початок</th>
-                                        <th>Кінець</th>
-                                    </tr>
-                                </table>
                                 <table 
                                     id="showCurrent" 
                                     className="w3-table-all"
