@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Time Checker</title>
+        <title>Time Counter</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="img/favicon.ico" type="image/x-icon">
@@ -236,8 +236,8 @@
                                 <td className="w3-padding-16 hiddenOnMobile">({currentTotal}хв)</td>
                                 <td className="w3-padding-16">{currentTotalFullHours}год. {currentTotalFullMinutes}хв.</td>
                                 <td>
-                                    <button className="trashButton w3-button">
-                                        <i className="fa fa-trash w3-large " onClick={this.myDelete} id={item.elementID} />
+                                    <button className="trashButton w3-button" onClick={this.myDelete} id={item.elementID}>
+                                        <i className="fa fa-trash w3-large" />
                                     </button>
                                 </td>
                             </tr>
