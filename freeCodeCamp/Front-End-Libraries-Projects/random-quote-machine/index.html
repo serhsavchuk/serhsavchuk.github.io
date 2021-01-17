@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Random Quote Machine</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+        
+
+        <style>
+            @media only screen and (max-width: 550px){
+                #quote-box {
+                    top: 50%;
+                    -ms-transform: translateY(-50%);
+                    transform: translateY(-50%);
+                }
+            }
+
+            @media only screen and (min-width: 556px) {
+                #quote-box {
+                    top: 50%;
+                    left: 50%;
+                    -ms-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
+                }
+            }
+            #quote-box {
+                max-width: 550px;
+                margin: 0;
+                position: absolute;
+            }
+            #author {
+                text-align: right;
+                font-size: 1.4rem;
+            }
+            i {
+                font-size: 1.6rem;
+            }
+        </style>
+    </head>
+    <body class="mx-auto">
+        <div id="root" class=""></div>
+
+        <script type="text/babel">
+
+            const quoteArr = [
+                'The greatest glory in living lies not in never falling, but in rising every time we fall.',
+                'The way to get started is to quit talking and begin doing.',
+                `Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking.`,
+                `If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough.`,
+                `If you set your goals ridiculously high and it's a failure, you will fail above everyone else's success.`,
+                `Life is what happens when you're busy making other plans.`,
+                'Tell me and I forget. Teach me and I remember. Involve me and I learn.',
+                'It is during our darkest moments that we must focus to see the light.'
+            ];
+
+            const authorArr = [
+                'Nelson Mandela',
+                'Walt Disney',
+                'Steve Jobs',
+                'Oprah Winfrey',
+                'James Cameron',
+                'John Lennon',
+                'Benjamin Franklin',
+                'Aristotle'
+            ];
+
+            class RandomQuoteMachine extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        quote: '',
+                        author: ''
+                    };
+
+                    this.setRandomQuote = this.setRandomQuote.bind(this);
+                }
+
+                setRandomQuote = () => {
+                    let randomNumber = Math.floor(Math.random() * quoteArr.length);
+                    console.log(randomNumber);
+
+                    this.setState({
+                        quote: quoteArr[randomNumber],
+                        author: authorArr[randomNumber]
+                    });
+                }
+
+                componentDidMount() {
+                    this.setRandomQuote();
+                }
+
+                render() {
+                    return (
+                        <div id="quote-box" className="mx-auto p-5 shadow bg-white">
+                            <h3 id="text" className="font-weight-normal mb-3"><i className="fas fa-quote-left" /> {this.state.quote}</h3>
+                            <p id="author">- {this.state.author}</p>
+                            <div className="clearfix mt-4 p-3">
+                                <a href="https://twitter.com/intent/tweet" target="_blank" id="tweet-quote" className="float-left mt-1"><i className="fab fa-twitter" /></a>
+                                <button 
+                                    id="new-quote" 
+                                    type ="button"
+                                    onClick={this.setRandomQuote}
+                                    className="float-right btn btn-primary"
+                                >
+                                    New Quote
+                                </button>
+                            </div>
+                            
+                        </div>
+                    );
+                }
+            }
+
+            ReactDOM.render(<RandomQuoteMachine />, document.getElementById('root'));
+
+        </script>
+        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    </body>
+</html>
