@@ -1,208 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Serhii Savchuk | Web Developer</title>
-        <meta charset="utf-8">
+        <title>Serhii Savchuk | Software Developer</title>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <link rel="apple-touch-icon" sizes="180x180" href="main-page/images/favicon/apple-touch-icon.png">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <link rel="icon" type="image/png" sizes="32x32" href="main-page/images/favicon/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="main-page/images/favicon/favicon-16x16.png">
-        <link rel="manifest" href="main-page/images/favicon/site.webmanifest">
-        <link rel="mask-icon" href="main-page/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
+        <link rel="apple-touch-icon" sizes="180x180" href="main-page/images/favicon/apple-touch-icon.png">
+        <link rel="manifest" href="./main-page/images/favicon/site.webmanifest">
+
         <style>
-            @media (max-width: 767.98px) { 
-                nav {
-                    display: none!important;
-                }
+            @media only screen and (max-width: 767.98px) {
                 .hidden-mobile {
                     display: none!important;
                 }
-            }
-            @media (min-width: 768px) {
-                .hidden-full {
-                    display: none;
+                #email {
+                    color: teal;
                 }
             }
-            html {
-                scroll-behavior: smooth;
-            }
-            #certificate-logo {
-                width: 70px;
-                height: 70px; 
-                background-color: #0a0a23;
-            }
-            #github {
-                color: #495057;
-            }
-            #github:hover {
-                color: #212529;
-            }
 
-            #displaying {
-                display: none;
-            }
+            html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
+            .showHover:hover {
+                cursor: pointer;
+                color: teal;
+                text-decoration: underline;
+            }
         </style>
     </head>
-    <body class="container-fluid">
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <main class="col-lg-8">
-                <nav class="navbar navbar-expand-sm bg-light navbar-light">
-                    <ul class="navbar-nav col-lg-11">
-                        <li class="nav-item">
-                            <a href="#profile" class="nav-link">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#skills" class="nav-link">Skills</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#education" class="nav-link">Education</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#certifications" class="nav-link">Certifications</a>
-                        </li>
-                        <!--
-                        <li class="nav-item">
-                            <a href="#projects" class="nav-link">Projects</a>
-                        </li>
-                        -->
-                    </ul>
-                    <div class="h4 mt-2 mb-2 col-lg-1 text-right p-0">
-                        <a href="https://github.com/serhsavchuk" target="_blank"><i class="fab fa-github mr-1" id="github"></i></a>
-                    </div>
-                </nav>  
-                <div id="profile" class="shadow-sm p-4 mb-4 mt-4">
-                    <h2 class="display-4">Serhii Savchuk</h2>
-                    <h4 class="font-weight-normal">Web Developer
-                        <span class="hidden-mobile"> | </span>
-                        <br class="hidden-full">
-                        <small class="font-weight-light">serhii.savchuk.dev@gmail.com</small>
-                    </h4>
-                    <p class="mb-2 h5 font-weight-normal"><i class="fa fa-map-marker-alt"></i> Ukraine</p>
-                    <div >
-                        
+
+    <body class="w3-light-grey">
+
+    <!-- Page Container -->
+        <div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+        <!-- The Grid -->
+        <div class="w3-row-padding">
+        
+            <!-- Left Column -->
+            <div class="w3-third">
+            
+            <div class="w3-white w3-text-grey w3-card-4">
+                <div class="w3-display-container">
+                    <img src="./main-page/images/author.JPG" style="width:100%" alt="Avatar">
+                    <div class="w3-display-bottomleft w3-container w3-text-white">
+                        <h2>Serhii Savchuk</h2>
                     </div>
                 </div>
-                <div id="skills" class="shadow-sm p-4 mb-4">
-                    <h3 class="mb-3">Skills</h3>
-                    <ul class="list-group">
-                        <li class="mb-0 list-group-item">HTML5, CSS3, Bootstrap 4.</li>
-                        <li class="mb-0 list-group-item">JavaScript.</li>
-                    </ul>
-                </div>
-                <div id="education" class="shadow-sm p-4 mb-4">
-                    <h3 class="mb-3">Education</h3>
-                    <p class="mb-0 font-weight-bolder">National Technical University of Lutsk</p>
-                    <p class="mb-0">Bachelor's Degree, Mechanical Engineering.</p>
-                    <p class="text-secondary">2015 - 2020</p>
-                </div>
-                <div id="certifications" class="shadow-sm p-4 mb-4">
-                    <h3 class="mb-3">Certifications</h3>
-                    <div class="media border p-3 mb-4">
-                        <div class="mr-3 rounded mt-1 hidden-mobile">
-                            <img src="main-page/images/fcc_primary_small.jpg" alt="Free Code Camp logo" style="width: 70px; margin-top: 10px;" >
-                        </div>
-                        <div class="media-body">
-                            <h4 class="mb-1">JavaScript Algorithms and Data Structures</h4>
-                            <p class="mb-1">freeCodeCamp</p>
-                            <p class="text-secondary">Issued January 1, 2021 <br> <small>No Expiration Date</small></p>
-                            <p><a href="https://www.freecodecamp.org/certification/serhsavchuk/javascript-algorithms-and-data-structures" target="_blank">See credential</a></p>
+
+                <div class="w3-container">
+                    <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Software Developer</p>
+                    <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Lutsk, Ukraine</p>
+                    <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i><span id="email" onclick="showEmail(event)" class="showHover">See Email</span></p>
+                    <hr>
+
+                    <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+                    <p>JavaScript</p>
+                    <div class="w3-light-grey w3-round-xlarge w3-small">
+                        <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
+                    </div>
+                    <p>React</p>
+                    <div class="w3-light-grey w3-round-xlarge w3-small">
+                        <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:35%">
+                        <div class="w3-center w3-text-white">35%</div>
                         </div>
                     </div>
-                    <div class="media border p-3 mb-4">
-                        <div class="mr-3 rounded mt-1 hidden-mobile">
-                            <img src="main-page/images/fcc_primary_small.jpg" alt="Free Code Camp logo" style="width: 70px; margin-top: 10px;" >
-                        </div>
-                        <div class="media-body">
-                            <h4 class="mb-1">Responsive Web Design</h4>
-                            <p class="mb-1">freeCodeCamp</p>
-                            <p class="text-secondary">Issued November 22, 2020 <br> <small>No Expiration Date</small></p>
-                            <p><a href="https://www.freecodecamp.org/certification/serhsavchuk/responsive-web-design" target="_blank">See credential</a></p>
-                        </div>
+                    <!--
+                    <p>Illustrator</p>
+                    <div class="w3-light-grey w3-round-xlarge w3-small">
+                        <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
+                    </div>
+                    <p>Media</p>
+                    <div class="w3-light-grey w3-round-xlarge w3-small">
+                        <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
+                    </div>
+                    -->
+                    <br>
+
+                    <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+                    <p>English</p>
+                    <div class="w3-light-grey w3-round-xlarge">
+                        <div class="w3-round-xlarge w3-teal" style="height:24px;width:25%"></div>
+                    </div>
+                    <p>Ukrainian</p>
+                    <div class="w3-light-grey w3-round-xlarge">
+                        <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
+                    </div>
+                    <p>Russian</p>
+                    <div class="w3-light-grey w3-round-xlarge">
+                        <div class="w3-round-xlarge w3-teal" style="height:24px;width:75%"></div>
+                    </div>
+                    <p>Polish</p>
+                    <div class="w3-light-grey w3-round-xlarge">
+                        <div class="w3-round-xlarge w3-teal" style="height:24px;width:35%"></div>
+                    </div>
+                    <br>
+                </div>
+            </div><br>
+
+            <!-- End Left Column -->
+            </div>
+
+            <!-- Right Column -->
+            <div class="w3-twothird">
+            
+            <div class="w3-container w3-card w3-white w3-margin-bottom">
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+                <div class="w3-container">
+                <h5 class="w3-opacity"><b>Warehouse Worker / Private Company (Ukraine)</b></h5>
+                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jul 2020 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+                <p>Managing, organizing and retrieving stock and other.</p>
+                <hr>
+                </div>
+                <div class="w3-container">
+                <h5 class="w3-opacity"><b>Salesperson  / Epicentr K (Ukraine)</b></h5>
+                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oct 2019 - Mar 2020</h6>
+                <p>Sale and showcase products for consumers.</p>
+                <hr>
+                </div>
+                <div class="w3-container">
+                <h5 class="w3-opacity"><b>Warehouse Worker / Hutchinson (Poland)</b></h5>
+                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jul 2019 - Sep 2019</h6>
+                <p>Performing an array of duties such as receiving and processing incoming stock and materials, picking and filling orders from stock. </p><br>
+                </div>
+            </div>
+
+            <div class="w3-container w3-card w3-white w3-margin-bottom">
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+                
+                <div class="w3-container">
+                <h5 class="w3-opacity"><b>freeCodeCamp.org</b></h5>
+                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oct 2020 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+                <p>Online school of coding.</p>
+                <hr>
+                </div>
+                <div class="w3-container">
+                <h5 class="w3-opacity"><b>Engineering Mechanics</b></h5>
+                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sep 2015 - Jun 2020</h6>
+                <p>Bachelor's Degree</p><br>
+                </div>
+            </div>
+
+            <div class="w3-container w3-card w3-white w3-margin-bottom" style="padding-bottom: 16px;">
+                <h2 class="w3-text-grey w3-padding-16">
+                    <i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
+                    Certifications
+                </h2>
+
+                <div class="w3-row w3-panel w3-border w3-padding-16 w3-margin-bottom">
+                    <div class="w3-margin-right rounded w3-margin-top hidden-mobile w3-col" style="max-width: 80px;">
+                        <img src="main-page/images/fcc_primary_small.jpg" alt="Free Code Camp logo" style="width: 70px;">
+                    </div>
+                    <div class="w3-rest">
+                        <h3 style="margin-bottom: 0;">JavaScript Algorithms and Data Structures</h3>
+                        <p style="margin-bottom: 0;">freeCodeCamp.org</p>
+                        <p class="w3-text-grey" style="margin-top: 0;">Issued January 1, 2021 <br> <small>No Expiration Date</small></p>
+                        <p><a href="https://www.freecodecamp.org/certification/serhsavchuk/javascript-algorithms-and-data-structures" target="_blank" class="w3-hover-text-teal">See credential</a></p>
                     </div>
                 </div>
-                <!--
-                <div id="projects" class="shadow-sm p-4 mb-4">
-                    <h3 class="mb-3">Projects</h3>
-                    <div class="container row mx-auto">
-                        <div class="card col-lg-5 pt-3 mb-4 mx-auto" style="min-width:150px; max-width: 400px">
-                            <img class="card-img-top" src="main-page/images/img_test.png" alt="Card image" style="width:100%">
-                            <div class="card-body">
-                              <h4 class="card-title">Project Title</h4>
-                              <p class="card-text">Project description</p>
-                              <a href="#" class="btn btn-primary">See Project</a>
-                            </div>
-                        </div>
-                        <div class="card col-lg-5 pt-3 mb-4 mx-auto" style="min-width:150px; max-width: 400px">
-                            <img class="card-img-top" src="main-page/images/img_test.png" alt="Card image" style="width:100%">
-                            <div class="card-body">
-                              <h4 class="card-title">Project Title</h4>
-                              <p class="card-text">Project description</p>
-                              <a href="#" class="btn btn-primary">See Project</a>
-                            </div>
-                        </div>
-                        <div class="card col-lg-5 pt-3 mb-4 mx-auto" style="min-width:150px; max-width: 400px">
-                            <img class="card-img-top" src="main-page/images/img_test.png" alt="Card image" style="width:100%">
-                            <div class="card-body">
-                              <h4 class="card-title">Project Title</h4>
-                              <p class="card-text">Project description</p>
-                              <a href="#" class="btn btn-primary">See Project</a>
-                            </div>
-                        </div>
-                        <div class="card col-lg-5 pt-3 mb-4 mx-auto" style="min-width:150px; max-width: 400px">
-                            <img class="card-img-top" src="main-page/images/img_test.png" alt="Card image" style="width:100%">
-                            <div class="card-body">
-                              <h4 class="card-title">Project Title</h4>
-                              <p class="card-text">Project description</p>
-                              <a href="#" class="btn btn-primary">See Project</a>
-                            </div>
-                        </div>
-                        <div class="card col-lg-5 pt-3 mb-4 mx-auto" style="min-width:150px; max-width: 400px">
-                            <img class="card-img-top" src="main-page/images/img_test.png" alt="Card image" style="width:100%">
-                            <div class="card-body">
-                              <h4 class="card-title">Project Title</h4>
-                              <p class="card-text">Project description</p>
-                              <a href="#" class="btn btn-primary">See Project</a>
-                            </div>
-                        </div>
-                        <div class="card col-lg-5 pt-3 mb-4 mx-auto" style="min-width:150px; max-width: 400px">
-                            <img class="card-img-top" src="main-page/images/img_test.png" alt="Card image" style="width:100%">
-                            <div class="card-body">
-                              <h4 class="card-title">Project Title</h4>
-                              <p class="card-text">Project description</p>
-                              <a href="#" class="btn btn-primary">See Project</a>
-                            </div>
-                        </div>
+
+                <div class="w3-row w3-panel w3-border w3-padding-16 w3-margin-bottom">
+                    <div class="w3-margin-right rounded w3-margin-top hidden-mobile w3-col" style="max-width: 80px;">
+                        <img src="main-page/images/fcc_primary_small.jpg" alt="Free Code Camp logo" style="width: 70px;">
                     </div>
-                </div>
-                -->
-                <div class="pt-4 pb-4">
-                    <p class="text-secondary text-center"><span class="hidden-mobile">Developed by</span> Serhii Savchuk &#169; <span id="year"></span></p>
-                    <p class="text-center hidden-full">
-                        <a href="https://github.com/serhsavchuk" target="_blank">GitHub</a>
-                    </p>
+                    <div class="w3-rest">
+                        <h3 style="margin-bottom: 0;">Responsive Web Design</h3>
+                        <p style="margin-bottom: 0;">freeCodeCamp.org</p>
+                        <p class="w3-text-grey" style="margin-top: 0;">Issued November 22, 2020 <br> <small>No Expiration Date</small></p>
+                        <p><a href="https://www.freecodecamp.org/certification/serhsavchuk/responsive-web-design" target="_blank" class="w3-hover-text-teal">See credential</a></p>
+                    </div>
                 </div>
                 
-            </main>
-            <div class="col-lg-2"></div>
-        </div>
-        <script>
-            'use strict';
+            </div>
 
-            function changeDateYear(yearElement) {
-                let currentYear = new Date().getFullYear();
-                document.getElementById(yearElement).innerHTML = currentYear;
-            }
+            <!-- End Right Column -->
+            </div>
             
-            changeDateYear('year');
-        </script>
+        <!-- End Grid -->
+        </div>
+        
+        <!-- End Page Container -->
+        </div>
+
+        <footer class="w3-container w3-teal w3-center w3-margin-top">
+            <p>Find me on social media.</p>
+            <a href="https://github.com/serhsavchuk" target="_blank"><i class="fa fa-github w3-hover-opacity w3-xxlarge"></i></a>
+            <a href="#" target="_blank" class="w3-hide"><i class="fa fa-linkedin w3-hover-opacity w3-xxlarge"></i></a>
+            <p class="text-secondary text-center"><span class="hidden-mobile">Developed by</span> Serhii Savchuk © <span id="year">2021</span></p>
+        </footer>
+
+        <script src="./main-page/js/script.js"></script>
     </body>
 </html>
