@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Markdown Previwer</title>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/1.2.7/marked.min.js" integrity="sha512-Sl04EWeJ0QgILm83WoubQbZqh71aWLJP8xnswnKSBI37S+ZtrWVtSHmd1YaYYdC1g9PWN1siY7KO2jU3HtCVHA==" crossorigin="anonymous"></script>
+    </head>
+    <body>
+
+        <div id="root" style="max-width: 1250px"></div>
+
+        <script type="text/babel">
+        marked.setOptions({
+                breaks: true
+            });
+            
+        class MarkdownPreviwer extends React.Component {
+            constructor(props) {
+                super(props);
+                this.changePreview = this.changePreview.bind(this);
+            }
+
+            componentDidMount() {
+                let defaultText = `
+# Welcome to my React Markdown Previewer!
+## This is a sub-heading...
+Heres **some code**, \`<div></div>\`, between 2 backticks.
+
+\`\`\`
+// this is multi-line code:
+
+function anotherExample(firstLine, lastLine) {
+  if (firstLine == '' && lastLine == '') {
+    return multiLineCode;
+  }
+}
+\`\`\`
+
+<dl>
+    <dt>List</dt>
+    <dd>This</dd>    
+
+    <dt>Markdown in HTML</dt>
+    <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>
+
+There's also [links](https://serhsavchuk.github.io), and
+> <strong>Block Quotes</strong>!
+
+1. And there are numbererd lists too.
+1. Use just 1s if you want!
+1. And last but not least, let's not forget embedded images:
+
+![Lyric Theater w/ Text](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/1911_-_Lyric_Theater.jpg/320px-1911_-_Lyric_Theater.jpg)
+`;
+
+                document.getElementById('editor').value = defaultText;
+                document.getElementById('preview').innerHTML = marked(document.getElementById('editor').value);
+            }   
+
+            changePreview () {
+                document.getElementById('preview').innerHTML = marked(event.target.value);
+            }
+
+            render() {
+                return (
+                    <div className="w3-row w3-green">
+                        <div className="w3-container w3-half  w3-padding-32">
+                            <h2>Editor</h2>
+                            <hr />
+                            <textarea className="w3-input w3-rest" style={{resize: 'none', height: '90vh'}} type="text" id="editor" onKeyUp={this.changePreview} />
+                        </div>
+                        <div className="w3-container w3-half w3-blue  w3-padding-32">
+                            <h2>Previwer</h2>
+                            <hr />
+                            <div id="preview" style={{minHeight: '90vh'}}></div>
+                        </div>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(<MarkdownPreviwer />, document.getElementById('root'))
+        </script>
+        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    </body>
+</html>
