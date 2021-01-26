@@ -17,7 +17,7 @@
                     display: none!important;
                 }
                 #email {
-                    color: #2196F3;
+                    color: #5abf6c;
                 }
             }
 
@@ -25,8 +25,16 @@
 
             .showHover:hover {
                 cursor: pointer;
-                color: #2196F3;
+                color: #5abf6c;
                 text-decoration: underline;
+            }
+
+            .custom-color,
+            .certification-link:hover {
+                color: #5abf6c;
+            }
+            .custom-bg {
+                background-color: #a0daa9;
             }
         </style>
     </head>
@@ -51,36 +59,38 @@
                 </div>
 
                 <div class="w3-container">
-                    <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-blue"></i>Software Developer</p>
-                    <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-blue"></i>Lutsk, Ukraine</p>
-                    <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-blue"></i><span id="email" onclick="showEmail(event)" class="showHover">See Email</span></p>
+                    <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large custom-color"></i>Software Developer</p>
+                    <p><i class="fa fa-home fa-fw w3-margin-right w3-large custom-color"></i>Lutsk, Ukraine</p>
+                    <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large custom-color"></i><span id="email" onclick="showEmail(event)" class="showHover">See Email</span></p>
                     <hr>
 
-                    <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-blue"></i>Skills</b></p>
+                    <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right custom-color"></i>Skills</b></p>
                     <p>JavaScript</p>
-                    <div class="w3-light-grey w3-round-xlarge w3-small">
-                        <div class="w3-container w3-center w3-round-xlarge w3-blue" style="width:65%">65%</div>
+                    <div class="w3-light-grey w3-round-xlarge">
+                        <div class="w3-container w3-center w3-round-xlarge custom-bg" style="width:65%">
+                            <div class="w3-center">65%</div>
+                        </div>
                     </div>
                     <p>React</p>
-                    <div class="w3-light-grey w3-round-xlarge w3-small">
-                        <div class="w3-container w3-center w3-round-xlarge w3-blue" style="width:45%">
-                        <div class="w3-center w3-text-white">45%</div>
+                    <div class="w3-light-grey w3-round-xlarge">
+                        <div class="w3-container w3-center w3-round-xlarge custom-bg" style="width:45%">
+                            <div class="w3-center">45%</div>
                         </div>
                     </div>
                     <br>
 
-                    <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-blue"></i>Languages</b></p>
+                    <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right custom-color"></i>Languages</b></p>
                     <p>English</p>
                     <div class="w3-light-grey w3-round-xlarge">
-                        <div class="w3-round-xlarge w3-blue" style="height:24px;width:25%"></div>
+                        <div class="w3-container w3-center w3-round-xlarge custom-bg" style="width:33%">A2</div>
                     </div>
                     <p>Polish</p>
                     <div class="w3-light-grey w3-round-xlarge">
-                        <div class="w3-round-xlarge w3-blue" style="height:24px;width:35%"></div>
+                        <div class="w3-container w3-center w3-round-xlarge custom-bg" style="width:33%">A2</div>
                     </div>
                     <p>Ukrainian</p>
                     <div class="w3-light-grey w3-round-xlarge">
-                        <div class="w3-round-xlarge w3-blue" style="height:24px;width:100%"></div>
+                        <div class="w3-container w3-center w3-round-xlarge custom-bg" style="width:100%">C2</div>
                     </div>
                     <br>
                 </div>
@@ -94,10 +104,10 @@
             
             <!--
             <div class="w3-container w3-card w3-white w3-margin-bottom">
-                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Work Experience</h2>
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge custom-color"></i>Work Experience</h2>
                 <div class="w3-container">
                 <h5 class="w3-opacity"><b>Position / Company Name</b></h5>
-                <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jul 2020 - <span class="w3-tag w3-blue w3-round">Current</span></h6>
+                <h6 class="custom-color"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jul 2020 - <span class="w3-tag custom-bg w3-round">Current</span></h6>
                 <p>Description</p>
                 <hr>
             </div>
@@ -105,26 +115,26 @@
 
             <div class="w3-container w3-card w3-white w3-margin-bottom">
                 <h2 class="w3-text-grey w3-padding-16">
-                    <i class="fa fa-graduation-cap fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>
+                    <i class="fa fa-graduation-cap fa-fw w3-margin-right w3-xxlarge custom-color"></i>
                     Education
                 </h2>
                 
                 <div class="w3-container">
                     <h5 class="w3-opacity"><b>freeCodeCamp.org</b></h5>
-                    <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oct 2020 - <span class="w3-tag w3-blue w3-round">Current</span></h6>
+                    <h6 class="custom-color"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Oct 2020 - <span class="w3-tag custom-bg w3-round w3-text-black">Current</span></h6>
                     <p>Online school of coding.</p>
                     <hr>
                     </div>
                     <div class="w3-container">
                     <h5 class="w3-opacity"><b>Mechanical Engineering</b></h5>
-                    <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sep 2015 - Jun 2020</h6>
+                    <h6 class="custom-color"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sep 2015 - Jun 2020</h6>
                     <p>Bachelor's Degree</p><br>
                 </div>
             </div>
 
             <div class="w3-container w3-card w3-white w3-margin-bottom" style="padding-bottom: 16px;">
                 <h2 class="w3-text-grey w3-padding-16">
-                    <i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>
+                    <i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge custom-color"></i>
                     Certifications
                 </h2>
 
@@ -136,7 +146,7 @@
                         <h3 style="margin-bottom: 0;">JavaScript Algorithms and Data Structures</h3>
                         <p style="margin-bottom: 0;">freeCodeCamp.org</p>
                         <p class="w3-text-grey" style="margin-top: 0;">Issued January 1, 2021 <br> <small>No Expiration Date</small></p>
-                        <p><a href="https://www.freecodecamp.org/certification/serhsavchuk/javascript-algorithms-and-data-structures" target="_blank" class="w3-hover-text-blue">See credential</a></p>
+                        <p><a href="https://www.freecodecamp.org/certification/serhsavchuk/javascript-algorithms-and-data-structures" target="_blank" class="certification-link">See credential</a></p>
                     </div>
                 </div>
 
@@ -148,7 +158,7 @@
                         <h3 style="margin-bottom: 0;">Responsive Web Design</h3>
                         <p style="margin-bottom: 0;">freeCodeCamp.org</p>
                         <p class="w3-text-grey" style="margin-top: 0;">Issued November 22, 2020 <br> <small>No Expiration Date</small></p>
-                        <p><a href="https://www.freecodecamp.org/certification/serhsavchuk/responsive-web-design" target="_blank" class="w3-hover-text-blue">See credential</a></p>
+                        <p><a href="https://www.freecodecamp.org/certification/serhsavchuk/responsive-web-design" target="_blank" class="certification-link">See credential</a></p>
                     </div>
                 </div>
                 
@@ -163,7 +173,7 @@
         <!-- End Page Container -->
         </div>
 
-        <footer class="w3-container w3-light-blue w3-center w3-margin-top">
+        <footer class="w3-container w3-center w3-margin-top custom-bg">
             <p>Find me on social media.</p>
             <a href="https://github.com/serhsavchuk" target="_blank"><i class="fa fa-github w3-hover-opacity w3-xxlarge w3-margin-right"></i></a>
             <a href="https://www.freecodecamp.org/serhsavchuk" target="_blank"><i class="fa fa-free-code-camp w3-hover-opacity w3-xxlarge w3-margin-right"></i></a>
