@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Drum Machine</title>
+
+    <script>
+        'use strict';
+
+        function play(id) {
+            let audio = document.getElementById(id);
+            console.log(id);
+            audio.play();
+            showOnDisplay(id);
+        }
+
+        function showOnDisplay(id) {
+            let display = document.getElementById('display');
+            if(id === 'D') {
+                display.innerHTML = "Meow";
+            }
+            else {
+                display.innerHTML = "Beat: " + id;
+            }
+        }
+
+        window.document.onkeyup = function(event) {
+            console.log(event.key.toUpperCase());
+            play(event.key.toUpperCase());
+        }
+    </script>
+    <style>
+        button {
+            margin: 4pt;
+            min-width: 8vw;
+            min-height: 8vw;
+        }
+        button:hover {
+            background-color: lightskyblue!important;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="drum-machine" class="container-md row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="">
+                <button class="drum-pad btn btn-primary" id="beat-q" onclick="play('Q')">
+                    Q
+                    <audio src="./sounds/q.wav" class="clip" id="Q"></audio>
+                </button>
+                <button class="drum-pad btn btn-primary" id="beat-w" onclick="play('W')">
+                    W
+                    <audio src="./sounds/w.wav" class="clip" id="W"></audio>
+                </button>
+                <button class="drum-pad btn btn-primary" id="beat-e" onclick="play('E')">
+                    E
+                    <audio src="./sounds/e.wav" class="clip" id="E"></audio>
+                </button>
+            </div>
+            <div class="">
+                <button class="drum-pad btn btn-primary" id="beat-a" onclick="play('A')">
+                    A
+                    <audio src="./sounds/a.wav" class="clip" id="A"></audio>
+                </button>
+                <button class="drum-pad btn btn-primary" id="beat-s" onclick="play('S')">
+                    S
+                    <audio src="./sounds/s.wav" class="clip" id="S"></audio>
+                </button>
+                <button class="drum-pad btn btn-primary" id="beat-d" onclick="play('D')">
+                    D
+                    <audio src="./sounds/d.mp3" class="clip" id="D"></audio>
+                </button>
+            </div>
+            <div class="">
+                <button class="drum-pad btn btn-primary" id="beat-z" onclick="play('Z')">
+                    Z
+                    <audio src="./sounds/z.wav" class="clip" id="Z"></audio>
+                </button>
+                <button class="drum-pad btn btn-primary" id="beat-x" onclick="play('X')">
+                    X
+                    <audio src="./sounds/x.mp3" class="clip" id="X"></audio>
+                </button>
+                <button class="drum-pad btn btn-primary" id="beat-c" onclick="play('C')">
+                    C
+                    <audio src="./sounds/c.wav" class="clip" id="C"></audio>
+                </button>
+                <p id="display" class="display-5 mx-auto"></p>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
