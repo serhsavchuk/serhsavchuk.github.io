@@ -1,0 +1,51 @@
+.btn-primary,
+.btn-social,
+.btn-secondary {
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--bg-primary);
+  color: var(--text-light);
+}
+
+.btn-social {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: 0.875rem;
+}
+
+.btn-secondary {
+  background-color: var(--bg-secondary);
+  color: var(--text-dark);
+  border-color: var(--border-primary);
+}
+
+.btn-email {
+  background-color: var(--bg-primary);
+  color: var(--text-light);
+}
+
+.btn-gh {
+  background-color: #1f2328;
+  color: var(--text-light);
+}
+
+.btn-li {
+  background-color: #2563eb;
+  color: var(--text-light);
+}
+
+.btn-close {
+  padding: 0;
+  background: inherit;
+  border: none;
+}

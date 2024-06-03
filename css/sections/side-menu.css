@@ -1,0 +1,102 @@
+.side-menu {
+  display: flex;
+  justify-content: end;
+  padding: 25px 0;
+}
+
+.side-menu .btn-menu {
+  background-color: var(--bg-light);
+  border: none;
+}
+
+.side-menu .menu-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-light);
+  padding: 20px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.menu-content .menu-header {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 25px;
+}
+
+.menu-content .menu-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.menu-content .menu-nav .nav-item {
+  color: var(--text-dark);
+  padding: 15px 40px;
+  border: 1px solid var(--border-primary);
+  border-radius: 20px;
+  font-size: 24px;
+}
+
+.menu-content .menu-nav .nav-item:hover {
+  background-color: #95cbf120;
+}
+
+.menu-content .hire-buttons {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 50px;
+}
+
+.menu-divider {
+  position: relative;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.menu-divider .divider-text {
+  padding: 0 10px;
+  background-color: var(--bg-light);
+  color: var(--text-secondary-2);
+  position: relative;
+  z-index: 10;
+}
+
+.menu-divider .divider-border {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: block;
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px solid var(--border-secondary-2);
+}
+
+.menu-social .social-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 20px 10px;
+}
+
+#side-menu-content[data-visibile="false"].menu-content {
+  display: none;
+}
+
+#side-menu-content[data-visibile="true"].menu-content {
+  display: block;
+}
+
+@media only screen and (min-width: 768px) {
+  .side-menu {
+    display: none;
+  }
+}
