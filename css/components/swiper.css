@@ -17,7 +17,7 @@
   padding: 6px;
   overflow: hidden;
   width: 100%;
-  /* max-width: 167px; */
+  max-width: calc(50vw - 24px);
   min-height: 340px;
 }
 
@@ -76,7 +76,7 @@
   .swiper-slide .slide-content {
     padding: 20px;
     max-width: 257px;
-    min-height: 325px;
+    min-height: 475px;
   }
   .slide-date span {
     font-size: 0.875rem;

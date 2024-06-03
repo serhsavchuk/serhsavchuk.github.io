@@ -2,6 +2,7 @@ import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs
 
 function getSlidesPerView() {
   const windowWidth = window.innerWidth;
+  console.log("windowWidth", windowWidth);
   if (windowWidth >= 1400) {
     return 3;
   } else if (windowWidth >= 1200) {
