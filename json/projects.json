@@ -1,0 +1,68 @@
+[
+  {
+    "id": "8trAaS4MRjLJ",
+    "title": "EzProp",
+    "description": "Application that allows to automatize building inspections routine",
+    "url": "https://posterumsoft.com/portfolio/ezprop",
+    "imgPath": "./img/content/online-geometry.svg",
+    "year": "Ongoing",
+    "tools": [
+      {
+        "id": "3my4A7YVdCsq",
+        "name": "Vue"
+      },
+      {
+        "id": "Qz72YH4Uy2ks",
+        "name": "JavaScript"
+      },
+      {
+        "id": "8QvdVW52Pr4a",
+        "name": "SCSS"
+      }
+    ]
+  },
+  {
+    "id": "begQnabwCmYw",
+    "title": "Elegant design world",
+    "description": "An example of a landing page for a design studio",
+    "url": "https://elegant-design-world.vercel.app/",
+    "imgPath": "./img/content/secure-login.svg",
+    "year": 2024,
+    "tools": [
+      {
+        "id": "3my4A7YVdCsx",
+        "name": "HTML5"
+      },
+      {
+        "id": "8QvdVW52Pr4x",
+        "name": "CSS3"
+      },
+      {
+        "id": "Qz72YH4Uy2k3",
+        "name": "JavaScript"
+      }
+    ]
+  },
+  {
+    "id": "RcPrm7tXbaeR",
+    "title": "Worktime",
+    "description": "An application for calculating the working hours of employees",
+    "url": "https://serhsavchuk.github.io/worktime/en/",
+    "imgPath": "./img/content/man-recruiter.svg",
+    "year": 2021,
+    "tools": [
+      {
+        "id": "4kP8HgjPaMqn",
+        "name": "Nuxt"
+      },
+      {
+        "id": "hTeVyNpzMH9q",
+        "name": "JavaScript"
+      },
+      {
+        "id": "E8y45pyVATsg",
+        "name": "SCSS"
+      }
+    ]
+  }
+]

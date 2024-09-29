@@ -1,0 +1,51 @@
+.footer {
+  margin: 0 auto;
+}
+
+.footer .social-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 10px;
+}
+.footer .social-buttons img {
+  width: 20px;
+  height: 20px;
+}
+.footer .social-buttons span {
+  font-size: 0.875rem;
+}
+
+#designer {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 1rem;
+}
+
+#designer span {
+  color: var(--text-dark);
+}
+
+#designer a {
+  border-bottom: 1px solid var(--border-secondary);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+@media only screen and (min-width: 768px) {
+  .footer .social-buttons {
+    padding: 10px 30px;
+  }
+  .footer .social-buttons span {
+    font-size: 1.5rem;
+  }
+  .footer .social-buttons img {
+    width: 40px;
+    height: 40px;
+  }
+
+  #designer {
+    font-size: 1.25rem;
+  }
+}
