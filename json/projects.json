@@ -47,21 +47,21 @@
     "id": "RcPrm7tXbaeR",
     "title": "Worktime",
     "description": "An application for calculating the working hours of employees",
-    "url": "https://serhsavchuk.github.io/worktime/en/",
+    "url": "https://serhsavchuk.github.io/worktime/",
     "imgPath": "./img/content/man-recruiter.svg",
-    "year": 2021,
+    "year": 2024,
     "tools": [
       {
         "id": "4kP8HgjPaMqn",
-        "name": "Nuxt"
+        "name": "Vue"
       },
       {
         "id": "hTeVyNpzMH9q",
-        "name": "JavaScript"
+        "name": "TypeScript"
       },
       {
         "id": "E8y45pyVATsg",
-        "name": "SCSS"
+        "name": "CSS"
       }
     ]
   }
