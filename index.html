@@ -1,285 +1,124 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="index, follow" />
-    <meta
-      name="description"
-      content="Professional Software Developer with over 3 years of experience"
-    />
-    <meta name="keywords" content="Web Developer, Software Developer." />
-    <meta name="author" content="Serhii Savchuk" />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#ffffff" />
 
-    <title>Serhii Savchuk - Software Developer</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Professional Frontend Developer." />
+  <meta name="keywords" content="Web Developer, Frontend Developer." />
+  <meta name="author" content="Serhii Savchuk" />
+  <meta name="msapplication-TileColor" content="#da532c" />
+  <meta name="theme-color" content="#ffffff" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/x-icon" href="./img/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="./img/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./img/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="./img/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/site.webmanifest" />
-    <link rel="mask-icon" href="./img/safari-pinned-tab.svg" color="#333333" />
+  <title>Serhii Savchuk - Frontend Developer</title>
 
-    <link rel="stylesheet" href="./css/styles.css" />
-  </head>
-  <body>
-    <header class="container header">
-      <div class="menu-nav">
-        <a href="#home" class="nav-item">Home</a>
-        <a href="#about" class="nav-item">About</a>
-        <a href="#projects" class="nav-item">Projects</a>
-        <a href="#contacts" class="nav-item">Contact</a>
-      </div>
-      <div class="side-menu">
-        <button id="button-menu" type="button" class="btn-menu">
-          <img
-            src="./img/icons/burger.svg"
-            width="32"
-            height="22"
-            alt="Menu icon"
-          />
-        </button>
-        <div data-visibile="false" id="side-menu-content" class="menu-content">
-          <div class="menu-header">
-            <button id="button-close-menu" type="button" class="btn-close">
-              <img
-                src="./img/icons/close.svg"
-                width="43"
-                height="43"
-                alt="Close icon"
-              />
-            </button>
-          </div>
-          <div class="menu-nav">
-            <a href="#home" class="nav-item">Home</a>
-            <a href="#about" class="nav-item">About</a>
-            <a href="#projects" class="nav-item">Projects</a>
-            <a href="#contacts" class="nav-item">Contact</a>
-          </div>
-          <div class="menu-hire">
-            <div class="hire-buttons">
-              <a
-                href="mailto:serhii.savchuk.dev@gmail.com"
-                class="btn-primary"
-              >
-                Hire me
-              </a>
-              <a
-                href="https://drive.google.com/file/d/1JpXyjAmZ2MQtEdh2KmRZa5ilQhZzMSKM/view?usp=sharing"
-                target="_blank"
-                class="btn-secondary"
-              >
-                Download CV
-              </a>
-            </div>
-          </div>
-          <div class="menu-divider">
-            <span class="divider-text">OR</span>
-            <span class="divider-border"></span>
-          </div>
-          <div class="menu-social">
-            <div class="social-buttons">
-              <a
-                href="mailto:serhii.savchuk.dev@gmail.com"
-                class="btn-social btn-email"
-                type="button"
-              >
-                <img
-                  src="./img/social/Email.svg"
-                  width="20"
-                  height="20"
-                  alt="Envelope"
-                />
-                <span>Email</span>
-              </a>
-              <a
-                href="https://github.com/serhsavchuk/"
-                target="_blank"
-                class="btn-social btn-gh"
-                type="button"
-              >
-                <img
-                  src="./img/social/GitHub.svg"
-                  width="20"
-                  height="20"
-                  alt="Github"
-                />
-                <span>GitHub</span>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="./img/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="mask-icon" href="./img/safari-pinned-tab.svg" color="#333333" />
+
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <header class="container header">
+    <div class="menu-nav">
+      <a href="#about" class="nav-item">About</a>
+      <a href="#projects" class="nav-item">Projects</a>
+    </div>
+  </header>
+  <main class="container">
+    <section id="home" class="section-container">
+      <div class="section-banner">
+        <div class="banner-text">
+          <p class="banner-author">
+            <span class="mobile-hidden prefix">Hi, my name is </span>
+            <span>Serhii Savchuk</span>
+          </p>
+          <p class="banner-position">
+            <span class="mobile-hidden">I'm a </span>
+            <span>Frontend Developer</span>
+          </p>
+          <p class="banner-description">
+            Proficient in Vue and React, skilled in optimizing
+            performance, integrating APIs, and implementing innovative front-end solutions.
+          </p>
+          <div class="tablet-hidden">
+            <div class="banner-buttons">
+              <a href="https://www.linkedin.com/in/serhsavchuk/" class="btn-primary">
+                LinkedIn
               </a>
             </div>
           </div>
         </div>
+        <div>
+          <img src="./img/content/programmer.svg" width="165" height="158" alt="Programmer"
+            class="img-responsive banner-image" />
+        </div>
       </div>
-    </header>
-    <main class="container">
-      <section id="home" class="section-container">
-        <div class="section-banner">
-          <div class="banner-text">
-            <p class="banner-author">
-              <span class="mobile-hidden prefix">Hi, my name is </span>
-              <span>Serhii Savchuk</span>
-            </p>
-            <p class="banner-position">
-              <span class="mobile-hidden">I'm a </span>
-              <span>Software Developer</span>
-            </p>
-            <p class="banner-description">
-              3+ years of experience specializing in JavaScript, TypeScript, Vue
-              and React.
-            </p>
-            <div class="tablet-hidden">
-              <div class="banner-buttons">
-                <a
-                  href="mailto:serhii.savchuk.dev@gmail.com"
-                  class="btn-primary"
-                >
-                  Hire me
-                </a>
-                <a
-                  href="https://drive.google.com/file/d/19HU1TP-oa_u-8I08jlBx9XDGO08veiHw/view?usp=sharing"
-                  target="_blank"
-                  class="btn-secondary"
-                >
-                  Download CV
-                </a>
-              </div>
-            </div>
-          </div>
-          <div>
-            <img
-              src="./img/content/programmer.svg"
-              width="165"
-              height="158"
-              alt="Programmer"
-              class="img-responsive banner-image"
-            />
-          </div>
-        </div>
-        <div class="desktop-hide">
-          <div class="banner-buttons">
-            <a
-              href="mailto:serhii.savchuk.dev@gmail.com"              
-              class="btn-primary"
-            >
-              Hire me
-            </a>
-            <a
-              href="https://drive.google.com/file/d/1JpXyjAmZ2MQtEdh2KmRZa5ilQhZzMSKM/view?usp=sharing"
-              target="_blank"
-              class="btn-secondary"
-            >
-              Download CV
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" class="section-container">
-        <h2 class="section-title">About</h2>
-        <div class="section-about">
-          <img
-            src="./img/content/landing-worker.svg"
-            alt="Worker"
-            width="350"
-            height="213"
-            class="img-responsive about-image"
-          />
-          <div class="about-text">
-            <p class="about-author">Serhii Savchuk</p>
-            <p class="about-description">
-              Proven track record in crafting dynamic e-commerce solutions,
-              intuitive dashboards, and engaging websites. Highly skilled in
-              translating complex requirements into functional, aesthetically
-              pleasing web applications.
-            </p>
-            <section class="tablet-hidden">
-              <h2 class="section-title">Skills</h2>
-              <div id="about-skills"></div>
-            </section>
-          </div>
-        </div>
-      </section>
-
-      <section class="section-container desktop-hide">
-        <h2 class="section-title">Skills</h2>
-        <div id="skills"></div>
-      </section>
-
-      <section id="projects" class="section-container">
-        <h2 class="section-title">Projects</h2>
-        <!-- Slider main container -->
-        <div class="slides">
-          <div id="slides-wrapper" class="slides-wrapper">
-            <!-- Slides injected by js -->
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="container footer">
-      <div id="contacts" class="social-buttons">
-        <a
-          href="mailto:serhii.savchuk.dev@gmail.com"
-          class="btn-social btn-email"
-          type="button"
-        >
-          <img
-            src="./img/social/Email.svg"
-            width="20"
-            height="20"
-            alt="Envelope"
-          />
-          <span>Email</span>
-        </a>
-        <a
-          href="https://github.com/serhsavchuk/"
-          target="_blank"
-          class="btn-social btn-gh"
-          type="button"
-        >
-          <img
-            src="./img/social/GitHub.svg"
-            width="20"
-            height="20"
-            alt="Github"
-          />
-          <span>GitHub</span>
-        </a>
-      </div>
-      <div id="designer">
-        <p>
-          <span>Designed by</span>
-          <a
-            href="https://www.linkedin.com/in/anna-marchuk-1366912ba/"
-            target="_blank"
-          >
-            Anna Marchuk
+      <div class="desktop-hide">
+        <div class="banner-buttons">
+          <a href="https://www.linkedin.com/in/serhsavchuk/" class="btn-primary">
+            LinkedIn
           </a>
-        </p>
+        </div>
       </div>
-    </footer>
-    <script type="module" src="./js/scripts.js"></script>
-  </body>
+    </section>
+
+    <section id="about" class="section-container">
+      <h2 class="section-title">About</h2>
+      <div class="section-about">
+        <img src="./img/content/landing-worker.svg" alt="Worker" width="350" height="213"
+          class="img-responsive about-image" />
+        <div class="about-text">
+          <p class="about-author">Serhii Savchuk</p>
+          <p class="about-description">
+            Proven track record in crafting dynamic e-commerce solutions,
+            intuitive dashboards, and engaging websites. Highly skilled in
+            translating complex requirements into functional, aesthetically
+            pleasing web applications.
+          </p>
+          <section class="tablet-hidden">
+            <h2 class="section-title">Skills</h2>
+            <div id="about-skills"></div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container desktop-hide">
+      <h2 class="section-title">Skills</h2>
+      <div id="skills"></div>
+    </section>
+
+    <section id="projects" class="section-container">
+      <h2 class="section-title">Projects</h2>
+      <!-- Slider main container -->
+      <div class="slides">
+        <div id="slides-wrapper" class="slides-wrapper">
+          <!-- Slides injected by js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <div id="designer">
+      <p>
+        <span>Designed by</span>
+        <a href="https://www.linkedin.com/in/anna-marchuk-1366912ba/" target="_blank">
+          Anna Marchuk
+        </a>
+      </p>
+    </div>
+  </footer>
+  <script type="module" src="./js/scripts.js"></script>
+</body>
+
 </html>

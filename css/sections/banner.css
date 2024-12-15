@@ -33,8 +33,7 @@
 
 .banner-buttons {
   display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 
 @media only screen and (min-width: 768px) {
@@ -71,9 +70,6 @@
   .section-banner .banner-image {
     min-width: 522px;
     min-height: 440px;
-  }
-  .section-banner .banner-buttons {
-    display: flex;
   }
   .section-banner .banner-buttons a {
     border-radius: 20px;
